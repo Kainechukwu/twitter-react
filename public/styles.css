@@ -1,0 +1,86 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap'); */
+
+
+/* @fontface {
+    font-family: 'Montserrat', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap')
+  } */
+
+body {
+    width: 1349px;
+    height: 608px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page {
+    background-color: white;
+    width: 45%;
+    /* float: right; */
+    height: 430px;
+    margin: 16px 20px 16px 16px;
+   
+
+}
+
+.padding16px {
+    padding: 16px;
+    top: 50px;
+}
+
+.relative {
+    position: relative;
+    
+}
+
+
+
+.displayFlex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-left-page {
+    flex: 55%;
+    width: 55%;
+    text-align: center;
+    background-image: url(https://abs.twimg.com/sticky/illustrations/lohp_en_850x623.png);
+    background-color: #1d5e96;
+    padding-top: 130px;
+    height: 450px;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+@media (max-width: 800px) {
+    .displayFlexColumn {
+        flex-direction: column;
+        flex-flow: column-reverse wrap;
+    }
+    .page {
+        float: left;
+        min-width: 40%;
+        /* width: 100%; */
+    }
+    .flex-left-page {
+        min-width: 40%;
+    }
+    .margin-auto {
+        margin: 0;
+    }
+
+    .padding16px {
+        top: 0;
+    }
+}
