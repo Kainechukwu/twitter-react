@@ -2,9 +2,10 @@ import React from "react"
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { Link } from "react-router-dom";
+import SignUp from "./signupReact"
 // import Button from '@material-ui/core/Button';
-// © 2021 Twitter, Inc.
+const year = new Date().getFullYear();
 
 const useStyles = makeStyles({
     typographyStyle1: {
@@ -17,21 +18,16 @@ const useStyles = makeStyles({
         color: "black",
         fontFamily: "'Montserrat', sans-serif",
         marginTop: "40px",
-        
+
     }
 
-    // buttonStyle1: {
-    //     color: "white",
-    //     backgroundColor: "red"
-    //     // width: "30px"
-        
 
-    // }
 });
 
 function LandingPage() {
     const classes = useStyles();
     return (
+    <div className= "minWidth300">
         <div className="displayFlex displayFlexColumn">
             <div className="flex-left-page">
                 <div>
@@ -39,35 +35,47 @@ function LandingPage() {
 
                 </div>
             </div>
-            <div className="page padding16px relative">
+            <div className="page padding16px relative marginAutoWidth70">
 
-                <TwitterIcon  style={{ fontSize: 50, color: "#74cce6"}} />
+                <TwitterIcon style={{ fontSize: 50, color: "#74cce6" }} />
 
                 <Typography variant="h2"
 
                     className={classes.typographyStyle1}
                 >Happening now</Typography>
 
-                <Typography 
-                variant="h4"
-                className={classes.typographyStyle2}
+                <Typography
+                    variant="h4"
+                    className={classes.typographyStyle2}
                 >Join Twitter Today.</Typography>
 
 
-                {/* <Button variant="contained" size = "large"className={classes.buttonStyle1}>Sign up</Button> */}
-                <div className="flexColumn">
-                    <div>
-                        <Link>Sign up</Link>
-                    </div>
+                <div className="flexColumn flexRow ">
 
-                    <div>
-                        <Link>Login</Link>
-                    </div>
+                    <Link to={{ pathname: "/signupReact" }} style={{marginBottom: "25px", marginRight: "20px" }} className="buttonWidth textDecoration"> <div className="buttonDivs signUpButton">
+                        <span className="whiteText homeButtonText">Sign up</span>
+                    </div></Link>
+
+
+                    <Link to={{ pathname: "/loginReact" }}  className="buttonWidth textDecoration"><div className="buttonDivs loginutton">
+                        <span className="loginText homeButtonText">Login</span>
+                    </div></Link>
+
                 </div>
 
 
             </div>
+
+            
         </div>
+
+        <div className="footer">
+               <p> © {year} Twitter, Inc.</p>
+            </div> 
+    </div>
+        
+
+        
 
     )
 
@@ -75,3 +83,4 @@ function LandingPage() {
 }
 
 export default LandingPage;
+
