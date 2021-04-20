@@ -43,9 +43,9 @@ h2 {
     height: 27px;
     text-align: center;
     padding-top: 15px;
-    border: 1px solid;
+    border: 1px solid rgb(93 187 243);
     border-radius: 40px;
-    border-color: turquoise;
+    
 }
 
 .displayFlex {
@@ -84,9 +84,13 @@ h2 {
     
 }
 
-.loginButton {
+/* .loginButton {
     border-color: rgb(93 187 243);
     
+} */
+
+.linkDiv a {
+    height: 45px;
 }
 
 .whiteText {
@@ -95,11 +99,15 @@ h2 {
 
 .loginText {
     
-    color:turquoise
+    color:rgb(93 187 243);
 }
 
 .textDecoration {
     text-decoration: none;
+}
+
+.textField{
+    border-color: yellow;
 }
 
 .minWidth300 {
@@ -157,6 +165,6 @@ h2 {
     }
 
     
-    }
+    
    
 }
