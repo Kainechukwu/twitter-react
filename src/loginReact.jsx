@@ -54,7 +54,7 @@ export default function Login() {
     const classes = useStyles();
     const [buttonHover, setButtonHover] = useState(false);
     const [login, setLogin] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
@@ -74,12 +74,12 @@ export default function Login() {
         setLogin(prevValue => {
             if(name === "email") {
                 return {
-                    email: value,
+                    username: value,
                     password: prevValue.password
                 };
             } else if (name === "password") {
                 return {
-                    email: prevValue.email,
+                    username: prevValue.username,
                     password: value
                 };
 
@@ -93,10 +93,22 @@ export default function Login() {
     }
 
     function submitDetails(event){
-        console.log(login);
-        axios.post("http://localhost:3000/login").then(response => {
+        console.log(login.username);
+
+        // axios.post("http://localhost:3000/login", login).then(response => {
+        //     console.log(response);
+        // });
+
+        axios({
+            method: "POST",
+            data: login,
+            withCredentials: true,
+            url: "http://localhost:3000/login"
+
+        }).then(response => {
             console.log(response);
         });
+;
 
 
         event.preventDefault();
@@ -125,7 +137,7 @@ export default function Login() {
                         name="email"
                         autoComplete="email"
                         autoFocus
-                        value ={login.email}
+                        value ={login.username}
                         onChange={handleLoginChange}
                 
                     />

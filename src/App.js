@@ -3,10 +3,10 @@ import LandingPage from "./landingPage";
 import SignUp from "./signupReact";
 import Login from "./loginReact";
 
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom"
+import { BrowserRouter, Route, Switch} from "react-router-dom"
 
 
-const date = new Date().getFullYear();
+// const date = new Date().getFullYear();
 const PageNotFound = function () {
   return (
     <div>404!</div>
