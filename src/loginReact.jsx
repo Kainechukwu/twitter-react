@@ -93,7 +93,7 @@ export default function Login() {
     }
 
     function submitDetails(event){
-        console.log(login.username);
+        // console.log(login.username);
 
         // axios.post("http://localhost:3000/login", login).then(response => {
         //     console.log(response);

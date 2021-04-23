@@ -1,14 +1,11 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -16,9 +13,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 
-
+// ----------------------------COPYRIGHT------------------------------------
 
 function Copyright() {
     return (
@@ -33,6 +31,7 @@ function Copyright() {
     );
 }
 
+// ----------------------------USE STYLES------------------------------------
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -53,53 +52,181 @@ const useStyles = makeStyles((theme) => ({
     },
     month: {
         margin: theme.spacing(0, 2, 0, 0),
-        minWidth: 190,
-        
+        minWidth: 200,
+
     },
     dayNyear: {
         minWidth: 70,
-        margin: theme.spacing(0, 1, 0, 0)
+        margin: theme.spacing(0, 1, 0, 0),
+        left: "15px"
     },
     day: {
         minWidth: 70,
         margin: theme.spacing(0, 1, 0, 0),
-        left: "18px"
+        left: "30px"
+    },
+    twitter: {
+        margin: theme.spacing(1),
+        color: "rgba(29,161,242,1.00)",
+        fontSize: "45px"
     }
 
 }));
 
+// ----------------------------SIGNUP------------------------------------
 export default function SignUp() {
     const classes = useStyles();
 
-    const [age, setAge] = React.useState('');
 
+    // ----------------------------USE STATE------------------------------------
+
+    const [signup, setSignup] = React.useState({
+        firstname: "",
+        lastname: "",
+        username: "",
+        password: "",
+        month: "",
+        day: "",
+        year: ""
+    });
+
+
+    // ----------------------------YEARS ARRAY------------------------------------
     const years = [];
     const validYear = (new Date().getFullYear() - 18);
     const oldestYear = validYear - 100;
-    for (var i = oldestYear; i <= validYear; i++) {
+    for (let i = validYear; i >= oldestYear; i--) {
         years.push(i);
     }
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    // ----------------------------MONTHS ARRAY------------------------------------
+    const months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    function createYear(year) {
-        return (<MenuItem key={year} value={year}>{year}</MenuItem>)
+    // ----------------------------DAYS ARRAY------------------------------------
+    const days = [];
+    for (let i = 1; i <= 31; i++) {
+        days.push(i);
     }
 
+
+    // ----------------------------HANDLE CHANGE------------------------------------
+
+    function handleChange(event) {
+        const { name, value } = event.target;
+
+
+        setSignup(prevValue => {
+            if (name === "firstName") {
+                return {
+                    firstname: value,
+                    lastname: prevValue.lastname,
+                    username: prevValue.username,
+                    password: prevValue.password,
+                    month: prevValue.month,
+                    day: prevValue.day,
+                    year: prevValue.year
+                }
+            } else if (name === "lastName") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: value,
+                    username: prevValue.username,
+                    password: prevValue.password,
+                    month: prevValue.month,
+                    day: prevValue.day,
+                    year: prevValue.year
+                }
+            } else if (name === "email") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: prevValue.lastname,
+                    username: value,
+                    password: prevValue.password,
+                    month: prevValue.month,
+                    day: prevValue.day,
+                    year: prevValue.year
+                }
+            } else if (name === "password") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: prevValue.lastname,
+                    username: prevValue.username,
+                    password: value,
+                    month: prevValue.month,
+                    day: prevValue.day,
+                    year: prevValue.year
+                }
+            } else if (name === "month") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: prevValue.lastname,
+                    username: prevValue.username,
+                    password: prevValue.password,
+                    month: value,
+                    day: prevValue.day,
+                    year: prevValue.year
+                }
+            } else if (name === "day") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: prevValue.lastname,
+                    username: prevValue.username,
+                    password: prevValue.password,
+                    month: prevValue.month,
+                    day: value,
+                    year: prevValue.year
+                }
+            } else if (name === "year") {
+                return {
+                    firstname: prevValue.firstname,
+                    lastname: prevValue.lastname,
+                    username: prevValue.username,
+                    password: prevValue.password,
+                    month: prevValue.month,
+                    day: prevValue.day,
+                    year: value
+                }
+            }
+        });
+    };
+
+
+
+    // ----------------------------CREATE YEAR------------------------------------
+    function createAge(age) {
+        return (<MenuItem key={age} value={age}>{age}</MenuItem>)
+    }
+
+
+    // ----------------------------CREATE DAY------------------------------------
+    function submitDetails(event) {
+
+        console.log(signup);
+
+        
+        axios({
+            method: "POST",
+            data: login,
+            withCredentials: true,
+            url: "http://localhost:3000/signup"
+
+        }).then(response => {
+            console.log(response);
+        });
+
+        event.preventDefault();
+    }
 
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
+                <TwitterIcon className={classes.twitter}></TwitterIcon>
+
                 <Typography component="h1" variant="h5">
                     Sign up
         </Typography>
-                <form className={classes.form} noValidate>
+                <form onSubmit={submitDetails} className={classes.form} noValidate>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -111,6 +238,8 @@ export default function SignUp() {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
+                                value={signup.firstname}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -122,6 +251,8 @@ export default function SignUp() {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
+                                value={signup.lastname}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -131,8 +262,10 @@ export default function SignUp() {
                                 fullWidth
                                 id="email"
                                 label="Email Address"
-                                name="username"
+                                name="email"
                                 autoComplete="email"
+                                value={signup.username}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -145,54 +278,59 @@ export default function SignUp() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                value={signup.password}
+                                onChange={handleChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12}>
                             <FormControl variant="outlined" className={classes.month}>
-                                <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+                                <InputLabel id="demo-simple-select-outlined-label">Month</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={age}
+                                    value={signup.month}
                                     onChange={handleChange}
-                                    label="Age"
+                                    label="Month"
+                                    name="month"
                                 >
 
-                                    {years.map(createYear)}
+                                    {months.map(createAge)}
 
 
 
                                 </Select>
                             </FormControl>
-                            
+
                             <FormControl variant="outlined" className={classes.dayNyear}>
-                                <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+                                <InputLabel id="demo-simple-select-outlined-label">Day</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={age}
+                                    value={signup.day}
                                     onChange={handleChange}
-                                    label="Age"
+                                    label="Day"
+                                    name="day"
                                 >
 
-                                    {years.map(createYear)}
+                                    {days.map(createAge)}
 
 
 
                                 </Select>
                             </FormControl>
 
-                            <FormControl variant="outlined"  className={classes.day}>
-                                <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+                            <FormControl variant="outlined" className={classes.day}>
+                                <InputLabel id="demo-simple-select-outlined-label">Year</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={age}
+                                    value={signup.year}
                                     onChange={handleChange}
-                                    label="Age"
+                                    label="Year"
+                                    name="year"
                                 >
 
-                                    {years.map(createYear)}
+                                    {years.map(createAge)}
 
 
 
@@ -200,8 +338,8 @@ export default function SignUp() {
                             </FormControl>
                         </Grid>
 
-                        
-                   
+
+
                     </Grid>
                     <Button
                         type="submit"
