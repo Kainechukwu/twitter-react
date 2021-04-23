@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
+import axios from "axios";  
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -49,10 +50,15 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        borderRadius: "40px",
+        // backgroundColor: "rgba(29,161,242,1.00)",
+        color: "white",
+        backgroundColor:  "rgba(29,161,242,1.00)"
+
     },
     month: {
         margin: theme.spacing(0, 2, 0, 0),
-        minWidth: 200,
+        minWidth: 180,
 
     },
     dayNyear: {
@@ -63,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     day: {
         minWidth: 70,
         margin: theme.spacing(0, 1, 0, 0),
-        left: "30px"
+        left: "35px"
     },
     twitter: {
         margin: theme.spacing(1),
@@ -206,7 +212,7 @@ export default function SignUp() {
         
         axios({
             method: "POST",
-            data: login,
+            data: signup,
             withCredentials: true,
             url: "http://localhost:3000/signup"
 
