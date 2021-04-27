@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from "axios";  
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -62,17 +63,17 @@ export default function Login() {
         setButtonHover(true);
     }
 
-    function buttonOut(){
+    function buttonOut() {
         setButtonHover(false);
     }
 
-    function handleLoginChange(event){
-   
+    function handleLoginChange(event) {
 
-        const {name, value} = event.target;
+
+        const { name, value } = event.target;
 
         setLogin(prevValue => {
-            if(name === "email") {
+            if (name === "email") {
                 return {
                     username: value,
                     password: prevValue.password
@@ -88,27 +89,52 @@ export default function Login() {
 
         // console.log(`${name} ${value}`)
 
-        
-       
+
+
     }
 
-    function submitDetails(event){
+    let history = useHistory();
+
+    function submitDetails(event) {
         // console.log(login.username);
 
-        // axios.post("http://localhost:3000/login", login).then(response => {
-        //     console.log(response);
+        // const options = {
+        //     headers: {'username': login.username}
+        // }
+
+        axios.post("http://localhost:3000/login", login).then(response => {
+            if (response.status === 200) {
+                // history.push("/userpageReact");
+                console.log(response)
+                localStorage.setItem("user_id", response.headers.user_id)
+            }
+        });
+
+
+
+        // const token = Buffer.from(`${login.username}:${login.password}`, 'utf8').toString('base64')
+
+        
+        
+
+
+        // axios({
+        //     method: "POST",
+        //     data: login,
+        //     withCredentials: true,
+        //     url: "http://localhost:3000/login",
+        //     // headers: {
+        //     //     'Authorization': `Basic ${token}`
+        //     // }
+
+        // }).then(response => {
+        //     // console.log(response.config.dataf);
+            // if (response.status === 200) {
+            //     // history.push("/userpageReact");
+            //     console.log(response)
+            // }
         // });
 
-        axios({
-            method: "POST",
-            data: login,
-            withCredentials: true,
-            url: "http://localhost:3000/login"
-
-        }).then(response => {
-            console.log(response);
-        });
-;
 
 
         event.preventDefault();
@@ -126,7 +152,7 @@ export default function Login() {
                 <Typography component="h1" variant="h5">
                     Log in
         </Typography>
-                <form onSubmit={submitDetails}className={classes.form} noValidate>
+                <form onSubmit={submitDetails} className={classes.form} noValidate>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -137,9 +163,9 @@ export default function Login() {
                         name="email"
                         autoComplete="email"
                         autoFocus
-                        value ={login.username}
+                        value={login.username}
                         onChange={handleLoginChange}
-                
+
                     />
                     <TextField
                         variant="outlined"
@@ -151,7 +177,7 @@ export default function Login() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
-                        value ={login.password}
+                        value={login.password}
                         onChange={handleLoginChange}
                     />
                     <FormControlLabel
