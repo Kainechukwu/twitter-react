@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+import API from "./axiosAPIs"
 
 
 
@@ -66,15 +67,11 @@ export default function UserPage() {
     // });
 
     useEffect(() => {
-
-        console.log("hello world");
-        axios.get("http://localhost:3000/userHomePage?page=1&limit=3")
-            .then(response => {
-                console.log(response);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        API.get("/userHomePage?page=1&limit=3", (response) => {
+            console.log(response)
+        }, (err) => {
+            console.log(err);
+        })
     }, []);
 
 

@@ -13,6 +13,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import API from "./axiosAPIs"
+
 
 function Copyright() {
     return (
@@ -95,27 +97,73 @@ export default function Login() {
 
     let history = useHistory();
 
+    //    axios.interceptors.request.use(req => {
+    //     // Do something before request is sent
+    //     // const user_id = localStorage.getItem("user_id");
+    //     req.headers["user_id"] = localStorage.getItem("user_id");
+
+
+    //     return req;
+
+    // }, function (error) {
+    //     console.log(error)
+    //     // Do something with request error
+    //     return Promise.reject(error);
+    // });
+
     function submitDetails(event) {
+
+
+        API.post("/login", login, (response) => {
+            if(response.status === 200){
+                localStorage.setItem("user_id", response.headers.user_id);
+                console.log(localStorage.getItem("user_id"));
+                 history.push("/userpageReact");
+            }
+        }, (err) => {
+            console.log(err)
+        });
+
+
+
+
+
+
+            // .then(response => {
+            //     // console.log(response.config.dataf);
+            //     if (response.status === 200) {
+            //         // history.push("/userpageReact");
+            //         console.log(response)
+            //         console.log("hello");
+            //     }
+            // })
+
+
+
+
         // console.log(login.username);
 
         // const options = {
-        //     headers: {'username': login.username}
+        //     headers: {'user_id': localStorage.getItem("user_id")}
         // }
 
-        axios.post("http://localhost:3000/login", login).then(response => {
-            if (response.status === 200) {
-                // history.push("/userpageReact");
-                console.log(response)
-                localStorage.setItem("user_id", response.headers.user_id)
-            }
-        });
+
+
+
+        // axios.post("http://localhost:3000/login", login, options).then(response => {
+        //     if (response.status === 200) {
+        //         // history.push("/userpageReact");
+        //         console.log(response)
+        //         localStorage.setItem("user_id", response.headers.user_id)
+        //     }
+        // });
 
 
 
         // const token = Buffer.from(`${login.username}:${login.password}`, 'utf8').toString('base64')
 
-        
-        
+
+
 
 
         // axios({
@@ -129,10 +177,10 @@ export default function Login() {
 
         // }).then(response => {
         //     // console.log(response.config.dataf);
-            // if (response.status === 200) {
-            //     // history.push("/userpageReact");
-            //     console.log(response)
-            // }
+        //     if (response.status === 200) {
+        //         // history.push("/userpageReact");
+        //         console.log(response)
+        //     }
         // });
 
 
