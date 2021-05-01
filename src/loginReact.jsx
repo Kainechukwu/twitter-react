@@ -89,27 +89,11 @@ export default function Login() {
             };
         });
 
-        // console.log(`${name} ${value}`)
-
-
 
     }
 
     let history = useHistory();
 
-    //    axios.interceptors.request.use(req => {
-    //     // Do something before request is sent
-    //     // const user_id = localStorage.getItem("user_id");
-    //     req.headers["user_id"] = localStorage.getItem("user_id");
-
-
-    //     return req;
-
-    // }, function (error) {
-    //     console.log(error)
-    //     // Do something with request error
-    //     return Promise.reject(error);
-    // });
 
     function submitDetails(event) {
 
@@ -124,64 +108,6 @@ export default function Login() {
             console.log(err)
         });
 
-
-
-
-
-
-            // .then(response => {
-            //     // console.log(response.config.dataf);
-            //     if (response.status === 200) {
-            //         // history.push("/userpageReact");
-            //         console.log(response)
-            //         console.log("hello");
-            //     }
-            // })
-
-
-
-
-        // console.log(login.username);
-
-        // const options = {
-        //     headers: {'user_id': localStorage.getItem("user_id")}
-        // }
-
-
-
-
-        // axios.post("http://localhost:3000/login", login, options).then(response => {
-        //     if (response.status === 200) {
-        //         // history.push("/userpageReact");
-        //         console.log(response)
-        //         localStorage.setItem("user_id", response.headers.user_id)
-        //     }
-        // });
-
-
-
-        // const token = Buffer.from(`${login.username}:${login.password}`, 'utf8').toString('base64')
-
-
-
-
-
-        // axios({
-        //     method: "POST",
-        //     data: login,
-        //     withCredentials: true,
-        //     url: "http://localhost:3000/login",
-        //     // headers: {
-        //     //     'Authorization': `Basic ${token}`
-        //     // }
-
-        // }).then(response => {
-        //     // console.log(response.config.dataf);
-        //     if (response.status === 200) {
-        //         // history.push("/userpageReact");
-        //         console.log(response)
-        //     }
-        // });
 
 
 
