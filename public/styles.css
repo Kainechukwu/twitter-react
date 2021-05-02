@@ -1,12 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap'); */
-
-
-/* @fontface {
-    font-family: 'Montserrat', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap')
-  } */
-
 @import "/center.css";
+@import "./componentStyles/tweetInput.css";
 
 body {
     width: 100%;
@@ -28,6 +21,11 @@ h2 {
     margin: 16px 20px 16px 16px;
    
 
+}
+
+.topAndBottomPadding {
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .padding16px {

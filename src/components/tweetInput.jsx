@@ -1,17 +1,21 @@
-import React, {useState} from "react";
-import API from "../axiosAPIs"
+import React, { useState } from "react";
+import TweetService from "./tweetService";
+import Icons from "./inputIcons"
+// import Button from '@material-ui/core/Button';
+
+
 
 export default function TweetInput() {
 
     const [tweet, setTweet] = useState("");
 
-    function handleChange(event){
+    function handleChange(event) {
         setTweet(event.target.value);
     }
 
-    function handleClick(event){
+    function handleClick(event) {
 
-        API.post("/tweet", tweet, (response) =>{
+        TweetService.sendTweet(tweet, (response) => {
             console.log(response);
         }, (err) => {
             console.log(err);
@@ -22,13 +26,34 @@ export default function TweetInput() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleClick}>
-                <div>
-                    <input onChange={handleChange} type="text" placeholder="What is happening?" value={tweet}/>
+        <div className="centerPadding16px">
+
+
+            <div className="displayFlex">
+                <div className="outerCenterImageDiv">
+                    <div>
+                        img
                 </div>
-                <button type="submit"><span>Tweet</span></button>
-            </form>
+                </div>
+                <div className="formDiv">
+
+
+                    <form onSubmit={handleClick}>
+
+                        <div className="topAndBottomPadding">
+                            <input className="centerTweetInput" onChange={handleChange} type="text" placeholder="What is happening?" value={tweet} />
+                        </div>
+
+                        <div className="displayFlex buttonAndIconsDiv">
+                            <Icons />
+                            <div className="tweetSubmitDiv">
+                                <button className="tweetSubmit" type="submit"><span>Tweet</span></button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }

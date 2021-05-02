@@ -1,0 +1,62 @@
+.centerPadding16px{
+    padding: 16px 0;
+}
+
+.centerTweetInput{
+    background-color: #00334e;
+    border: none;
+    font-size: larger;
+    max-width: 100%;
+    width: 99%;
+
+}
+
+.centerTweetInput:focus {
+    outline: none;
+  }
+
+.formDiv{
+    width: 88%;
+    
+
+}
+
+.outerCenterImageDiv{
+    margin-right: 16px;
+    width: 9%
+}
+
+.tweetSubmit{
+    padding: 11px 18px;
+    color: white;
+    background-color: rgb(29, 161, 242);;
+    border: none;
+    border-radius: 40px;
+}
+
+.tweetSubmitDiv{
+    margin-top: 12px;
+    position: relative;
+
+}
+
+
+
+.buttonAndIconsDiv{
+    justify-content: space-between;
+
+}
+
+.inputIcons{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    padding: 2px 8px;
+    border-radius: 40px;
+}
+
+.iconsPositioning{
+    position: relative;
+    left: -10px;
+}
+

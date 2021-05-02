@@ -20,7 +20,10 @@ const useStyles = makeStyles({
     },
     navbar: {
         margin: "0 11px",
-        flexDirection: "column"
+        flexDirection: "column",
+        marginTop: "10px"
+
+
     },
     twitterIconDiv: {
         width: "38px",
@@ -37,7 +40,7 @@ function Navbar() {
     return (
         <div className={classes.leftSide}>
             <div className={classes.navbar}>
-                <div className={classes.twitterIconDiv}><TwitterIcon style={{ fontSize: "33px", color: "#74cce6" }} /></div>
+                <div className={classes.twitterIconDiv}><TwitterIcon style={{ fontSize: "33px", color: "rgb(29, 161, 242)" }} /></div>
                 <NavItem name="Home" icon={<HomeIcon/>} />
                 <NavItem name="Explore" icon="#" />
                 <NavItem name="Notifications" icon={<NotificationsNoneSharpIcon />} />

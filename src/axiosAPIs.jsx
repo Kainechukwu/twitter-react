@@ -3,8 +3,7 @@ import axios from "axios";
 const baseUrl = "http://localhost:3000"
 
 axios.interceptors.request.use(req => {
-    // Do something before request is sent
-    // const user_id = localStorage.getItem("user_id");
+  
     req.headers["user_id"] = localStorage.getItem("user_id");
 
 

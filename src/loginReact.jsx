@@ -99,10 +99,10 @@ export default function Login() {
 
 
         API.post("/login", login, (response) => {
-            if(response.status === 200){
+            if (response.status === 200) {
                 localStorage.setItem("user_id", response.headers.user_id);
                 console.log(localStorage.getItem("user_id"));
-                 history.push("/userpageReact");
+                history.push("/userpageReact");
             }
         }, (err) => {
             console.log(err)
@@ -168,7 +168,7 @@ export default function Login() {
                         onMouseOut={buttonOut}
                     >
                         Log In
-          </Button>
+                    </Button>
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">

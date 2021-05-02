@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function TweetButton() {
+function TweetButton(props) {
     return (
         <div style={{ padding: "5px" }}>
             <div>
@@ -10,7 +10,7 @@ function TweetButton() {
                     <div >
                         <div style={{ padding: "12px 0", borderRadius: "40px", backgroundColor: "rgba(29,161,242,1.00)" }} >
 
-                            <div style={{ display: "block", color: "white", textAlign: "center", margin: "auto", width: "111px" }}>
+                            <div style={{ display: "block", color: "white", textAlign: "center", margin: "auto", width: "50%" }}>
                                 <span>Tweet</span>
                             </div>
                         </div>
