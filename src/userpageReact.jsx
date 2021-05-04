@@ -29,7 +29,7 @@ export default function UserPage() {
     // const [data, setData] = useState([]);
 
     useEffect(() => {
-        API.get("/userHomePage?page=1&limit=3", (response) => {
+        API.get("/userHomePage?page=1&limit=10", (response) => {
             console.log(response)
         }, (err) => {
             console.log(err);

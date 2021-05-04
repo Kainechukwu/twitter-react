@@ -1,6 +1,10 @@
 @import "/center.css";
 @import "./componentStyles/tweetInput.css";
 
+.absolute{
+    position: absolute;
+}
+
 body {
     width: 100%;
     height: 608px;
@@ -56,7 +60,7 @@ h2 {
 .flexColumn {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 .flex-left-page {
@@ -127,6 +131,12 @@ h2 {
 .margin-auto {
     margin: auto;
 }
+
+.width100{
+    width:100%;
+}
+
+
 
 @media (max-width: 800px) {
     .displayFlexColumn {

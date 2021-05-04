@@ -14,8 +14,8 @@ const useStyles = makeStyles({
 
 export default function CenterHeader() {
     return (
-        <div className="displayFlex">
-            <div className="centerHeader centerPadding16px">
+        <div className="displayFlex sidePadding-16px">
+            <div className="centerHeader tbPadding16px">
                 <div>
                     <span>Home</span>
                 </div>

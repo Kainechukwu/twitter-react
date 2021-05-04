@@ -7,26 +7,37 @@ import Icons from "./inputIcons"
 
 export default function TweetInput() {
 
-    const [tweet, setTweet] = useState("");
+    const [tweet, setTweet] = useState({
+        tweet: ""
+    });
 
     function handleChange(event) {
-        setTweet(event.target.value);
+       const {value} = event.target;
+
+        setTweet(()=> {
+            return{
+                tweet: value
+            }
+        });
     }
+    // console.log(tweet)
 
     function handleClick(event) {
 
         TweetService.sendTweet(tweet, (response) => {
-            console.log(response);
+            // console.log(response);
         }, (err) => {
             console.log(err);
         });
+
+        
 
 
         event.preventDefault()
     }
 
     return (
-        <div className="centerPadding16px">
+        <div className="tbPadding16px lrMargin">
 
 
             <div className="displayFlex">
@@ -41,7 +52,7 @@ export default function TweetInput() {
                     <form onSubmit={handleClick}>
 
                         <div className="topAndBottomPadding">
-                            <input className="centerTweetInput" onChange={handleChange} type="text" placeholder="What is happening?" value={tweet} />
+                            <input className="centerTweetInput" onChange={handleChange} type="text" placeholder="What is happening?" value={tweet.value} name="tweet"/>
                         </div>
 
                         <div className="displayFlex buttonAndIconsDiv">
