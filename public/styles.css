@@ -10,12 +10,38 @@ body {
     height: 608px;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    background-color: #15202B;
+
+}
+
+.borderColor{
+    border-color: "#38444d";
+}
+
+.borderLeft{
+    border-left: 1px solid #38444d;
+}
+
+.borderRight{
+    border-right: 1px solid #38444d;
+}
+
+.borderTop{
+    border-top: 1px solid #38444d;
+}
+
+.borderBottom{
+    border-bottom: 1px solid #38444d;
 }
 
 h2 {
-    color: black;
+    color: white;
     font-family: 'Montserrat', sans-serif;
 }
+
+/* span{
+    color: white;
+} */
 
 .page {
     background-color: white;

@@ -14,9 +14,12 @@ import TweetButton from "./tweetbutton"
 const useStyles = makeStyles({
     leftSide: {
         // backgroundColor: "blue",
-        width: "22%",
+        width: "21%",
         height: "100%",
-        marginLeft: "3%"
+        marginLeft: "3%",
+        borderRight:" 1px solid"
+
+
     },
     navbar: {
         margin: "0 11px",
@@ -38,7 +41,7 @@ const useStyles = makeStyles({
 function Navbar() {
     const classes = useStyles();
     return (
-        <div className={classes.leftSide}>
+        <div className={classes.leftSide} style={{borderColor: "#38444d"}}>
             <div className={classes.navbar}>
                 <div className={classes.twitterIconDiv}><TwitterIcon style={{ fontSize: "33px", color: "rgb(29, 161, 242)" }} /></div>
                 <NavItem name="Home" icon={<HomeIcon/>} />

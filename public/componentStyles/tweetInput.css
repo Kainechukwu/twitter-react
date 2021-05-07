@@ -3,7 +3,7 @@
 }
 
 .centerTweetInput{
-    background-color: #00334e;
+    background-color: #15202B;
     border: none;
     font-size: larger;
     max-width: 100%;
@@ -73,9 +73,9 @@
 
 .centerMoreDiv{
     position: absolute;
-    right: 30.8%;
-    padding: 6px;
-    top: 191px;
+    right: -1.6%;
+    padding: 7px;
+    top: -7px;
     border-radius: 40px;
 }
 

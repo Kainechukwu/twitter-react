@@ -101,8 +101,9 @@ export default function Login() {
         API.post("/login", login, (response) => {
             if (response.status === 200) {
                 localStorage.setItem("user_id", response.headers.user_id);
-                console.log(localStorage.getItem("user_id"));
+                console.log("user_id:" + localStorage.getItem("user_id"));
                 history.push("/userpageReact");
+                // console.log("response:" + response);
             }
         }, (err) => {
             console.log(err)
