@@ -1,8 +1,13 @@
 @import "/center.css";
+@import "/rightSide.css";
 @import "./componentStyles/tweetInput.css";
 
 .absolute{
     position: absolute;
+}
+
+.blueIcon{
+    color: rgba(29,161,242,1.00);
 }
 
 body {
@@ -18,6 +23,10 @@ body {
     border-color: "#38444d";
 }
 
+.borderBottom{
+    border-bottom: 1px solid #38444d;
+}
+
 .borderLeft{
     border-left: 1px solid #38444d;
 }
@@ -30,43 +39,6 @@ body {
     border-top: 1px solid #38444d;
 }
 
-.borderBottom{
-    border-bottom: 1px solid #38444d;
-}
-
-h2 {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* span{
-    color: white;
-} */
-
-.page {
-    background-color: white;
-    width: 45%;
-    /* float: right; */
-    height: 492px;
-    margin: 16px 20px 16px 16px;
-   
-
-}
-
-.topAndBottomPadding {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-
-.padding16px {
-    padding: 16px;
-    top: 50px;
-}
-
-.relative {
-    position: relative;
-    
-}
 
 .buttonDivs {
     width: 100%;
@@ -78,6 +50,16 @@ h2 {
     
 }
 
+
+.buttonWidth{
+    width: 70%;
+}
+
+
+.cursorPointer{
+    cursor: pointer;
+}
+
 .displayFlex {
     display: flex;
     flex-direction: row;
@@ -86,7 +68,7 @@ h2 {
 .flexColumn {
     display: flex;
     flex-direction: column;
-    /* margin-top: 40px; */
+   
 }
 
 .flex-left-page {
@@ -99,6 +81,14 @@ h2 {
     height: 484px;
 }
 
+.fontSize15px{
+    font-size: 15px;
+}
+
+.fontSizeInherit{
+    font-size: inherit;
+}
+
 .footer {
     text-align: center;
     padding: 1px;
@@ -109,28 +99,93 @@ h2 {
     color: grey;
 }
 
-.signUpButton {
-    background-color: rgb(93 187 243);
-    
+
+
+h2 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
+
+.homeButtonText {
+    position: relative;
+    bottom: 3px;
+}
+
+
+
+.linkDiv a {
+    height: 45px;
+}
+
+
 
 /* .loginButton {
     border-color: rgb(93 187 243);
     
 } */
 
-.linkDiv a {
-    height: 45px;
-}
-
-.whiteText {
-    color: white;
-}
 
 .loginText {
     
     color:rgb(93 187 243);
 }
+
+
+
+.margin-auto {
+    margin: auto;
+}
+
+.minWidth300 {
+    min-width: 463px;
+}
+
+
+
+.padding16px {
+    padding: 16px;
+    top: 50px;
+}
+
+.page {
+    background-color: white;
+    width: 45%;
+    /* float: right; */
+    height: 492px;
+    margin: 16px 20px 16px 16px;
+   
+}
+
+::placeholder {
+    color: rgb(136, 153, 166);
+}
+
+
+.relative {
+    position: relative;
+    
+}
+
+
+.sansSerif{
+    font-family: sans-serif;
+
+}
+
+.signUpButton {
+    background-color: rgb(93 187 243);
+    
+}
+
+.smallIconsColor{
+    color: rgb(136, 153, 166);
+    
+
+}
+
+/* span{
+    color: white;
+} */
 
 .textDecoration {
     text-decoration: none;
@@ -140,26 +195,18 @@ h2 {
     border-color: yellow;
 }
 
-.minWidth300 {
-    min-width: 463px;
+
+.topAndBottomPadding {
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
-.buttonWidth{
-    width: 70%;
-}
-
-.homeButtonText {
-    position: relative;
-    bottom: 3px;
-}
-
-
-.margin-auto {
-    margin: auto;
-}
 
 .width100{
     width:100%;
+}
+.whiteText {
+    color: white;
 }
 
 

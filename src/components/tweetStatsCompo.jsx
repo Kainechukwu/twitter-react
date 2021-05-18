@@ -14,7 +14,7 @@ export default function TweetStats(props) {
 
             </div>
             <div>
-                <span className="tweetStatsSpan">27</span>
+                <span className="tweetStatsSpan smallIconsColor">27</span>
             </div>
         </div>
     )

@@ -37,19 +37,19 @@ const PageNotFound = function () {
 
 
 
-axios.interceptors.request.use(req => {
-  // Do something before request is sent
-  // const user_id = localStorage.getItem("user_id");
-  req.headers["user_id"] = "hello"//localStorage.getItem("user_id");
-  console.log(req)
+// axios.interceptors.request.use(req => {
+//   // Do something before request is sent
+//   // const user_id = localStorage.getItem("user_id");
+//   req.headers["user_id"] = "hello"//localStorage.getItem("user_id");
+//   console.log(req)
 
-  return req;
+//   return req;
 
-}, function (error) {
-  console.log(error)
-  // Do something with request error
-  return Promise.reject(error);
-});
+// }, function (error) {
+//   console.log(error)
+//   // Do something with request error
+//   return Promise.reject(error);
+// });
 
 
 function App() {
