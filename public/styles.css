@@ -136,6 +136,46 @@ h2 {
     margin: auto;
 }
 
+.messagesFixedDiv{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    right: 0;
+    height: 50px;
+
+}
+
+.messagesBox{
+    padding: 0 16px;
+    height: 100%;
+    width: 28%;
+    position: relative;
+    right: 0px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    margin-right: 26px;
+    float: right;
+    justify-content: space-between;
+    background-color: #15202B;
+    box-shadow: rgb(136 153 166 / 20%) 0px 0px 15px, rgb(136 153 166 / 15%) 0px 0px 3px 1px;
+}
+
+.messageIconsDiv{
+    width: 50%;
+     text-align: center;
+     border-radius: 40px;
+}
+
+.messageIconsDiv:hover{
+    background-color: #2a2a4c;
+}
+
+.messagesOuterSpanDiv{
+    width: 75%;
+    font-size: 19px;
+}
+
+
 .minWidth300 {
     min-width: 463px;
 }

@@ -2,23 +2,67 @@ import React, { useState } from "react";
 import API from "../axiosAPIs"
 
 export default function WhoToFollowItems(props) {
-    const [following, setFollowing] = useState(false); 
+    const [following, setFollowing] = useState(false);
+    const [hover, setHover] = useState(false);
 
     // if (following === true) {
     //     const [hover, setHover] = useState();
     // }
 
-    function handleClick() {
-        if (following === false) {
-            const data = {
-                user_id: localStorage.getItem("user_id"),
-                following_id: props.user_id
-            };
+    function handleMouseOver() {
+        setHover(true)
+    }
 
+    function handleMouseOut() {
+        setHover(false)
+    }
+
+    function FButton() {
+
+        if (following === true) {
+            return (
+                <div className="followingButton"
+                    onClick={handleUnfollow}
+                    onMouseOver={handleMouseOver}
+                    onMouseOut={handleMouseOut}
+                    style={{ width: "100px", backgroundColor: hover ? "#f21170" : "rgb(29, 161, 242)" }}
+                >
+                    <div className="whiteText followButtonSpanDiv cursorPointer">
+                        <span className="followButtonSpan">{hover ? "Unfollow" : "Following"}</span>
+                    </div>
+                </div>
+            )
+
+
+        } else if (following === false) {
+            return (
+                <div className="followButton"
+                    onClick={handleFollow}
+                    style={{ width: "76px" }}
+                >
+                    <div className="blueIcon followButtonSpanDiv cursorPointer">
+                        <span className="followButtonSpan">{following ? "Following" : "Follow"}</span>
+                    </div>
+                </div>
+            )
+
+        }
+    }
+
+    function handleFollow() {
+        const data = {
+            user_id: localStorage.getItem("user_id"),
+            following_id: props.user_id
+        };
+
+
+        if (following === false) {
 
             API.post("/follow", data, (response) => {
                 if (response.status === 200) {
                     setFollowing(true);
+
+                    console.log("has been followed")
                 }
             }, (err) => {
                 console.log(err);
@@ -26,6 +70,27 @@ export default function WhoToFollowItems(props) {
 
         }
     }
+
+    function handleUnfollow() {
+
+        const data = {
+            user_id: localStorage.getItem("user_id"),
+            following_id: props.user_id
+        };
+
+        API.delete("/unfollow", data, (response) => {
+            if (response.status === 200) {
+                console.log("successfully unfollowed person")
+                console.log(response);
+                setFollowing(false);
+            }
+        }, (err) => {
+            console.log(err);
+        });
+
+    }
+
+
 
 
     return (
@@ -47,6 +112,8 @@ export default function WhoToFollowItems(props) {
 
                             </div>
 
+                            <FButton />
+                            {/* 
                             <div className="followButton"
                                 onClick={handleClick}
                                 style={{ width: following ? "100px" : "76px" }}
@@ -54,7 +121,7 @@ export default function WhoToFollowItems(props) {
                                 <div className="blueIcon followButtonSpanDiv cursorPointer">
                                     <span className="followButtonSpan">{following ? "Following" : "Follow"}</span>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     </div>

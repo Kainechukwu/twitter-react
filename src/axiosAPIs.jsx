@@ -44,6 +44,20 @@ const API = ({
     
         }).then(callback)
         .catch(errCallback);
+    },
+
+    delete: (url, data, callback, errCallback) => {
+        axios({
+            "method": "DELETE",
+            "data": data,
+            "withCredentials": true,
+            "url": baseUrl + url
+            // headers: {
+            //     'Authorization': `Basic ${token}`
+            // }
+    
+        }).then(callback)
+        .catch(errCallback);
     }
 });
 

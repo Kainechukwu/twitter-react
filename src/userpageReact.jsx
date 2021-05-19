@@ -7,6 +7,7 @@ import CenterPage from "./components/centerPage";
 import DisplayTweet from "./components/displayTweet";
 import useFetch from "react-fetch-hook";
 import RightSide from "./components/rightSide";
+import Messages from "./components/messages";
 
 const useStyles = makeStyles({
     userPage: {
@@ -83,8 +84,11 @@ export default function UserPage() {
 
                 <RightSide />
 
+                
 
             </div>
+
+            <Messages />
 
         </div>
 
