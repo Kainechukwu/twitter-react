@@ -1,6 +1,6 @@
 import React from "react"
 import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
-
+import DoubleArrowOutlinedIcon from '@material-ui/icons/DoubleArrowOutlined';
 export default function Messages() {
     return (
         <div className="messagesFixedDiv">
@@ -20,7 +20,7 @@ export default function Messages() {
                         </div>
                         <div  className="messageIconsDiv">
                             {/* <i data-feather="chevrons-down"></i> */}
-                            <MailOutlineOutlinedIcon className="relative" style={{top: "8px"}}/>
+                            <DoubleArrowOutlinedIcon className="relative" style={{top: "8px", transform: "rotate(90deg)"}}/>
                         </div>
                     </div>
                 </div>

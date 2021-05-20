@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import TweetStats from "./tweetStatsCompo"
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 
 const useStyles = makeStyles({
     tweetStatsIcons: {
@@ -11,13 +12,48 @@ const useStyles = makeStyles({
         color: "rgb(136, 153, 166)"
 
     }
-})
+});
+
+let useClickOutside = (handler) => {
+    let domNode = useRef();
+
+    useEffect(() => {
+        let ifHandler = (event) => {
+            if (!domNode.current.contains(event.target)) {
+                handler();
+            }
+        };
+        document.addEventListener("mousedown", ifHandler);
+
+        return () => {
+            document.removeEventListener("mousedown", ifHandler);
+
+        }
+    });
+
+    return domNode
+}
 
 export default function DisplayTweet(props) {
+    const [toggleOn, setToggleOn] = useState(false);
     const classes = useStyles();
+
     // if(!props||props.tweet) return <p>No tweets</p>
+    function handleToggle() {
+        setToggleOn(function (prevValue) {
+            return !prevValue
+        })
+    }
+
+
+    let domNode = useClickOutside(() => {
+        setToggleOn(false);
+
+    });
+
+
     return (
-        <div  style={{paddingTop: "12px"}}>
+        <div style={{ paddingTop: "12px" }}>
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
@@ -29,9 +65,37 @@ export default function DisplayTweet(props) {
                             <span className="sansSerif fontSizeInherit smallIconsColor">{props.handle}</span>
                             <span className="sansSerif fontSizeInherit smallIconsColor">.</span>
                             <time className="sansSerif fontSizeInherit smallIconsColor">5m</time>
-                            <div className="centerMoreDiv">
-                                <MoreHorizSharpIcon style={{ fontSize: "18px", display: "flex" }} className="centerMore smallIconsColor" />
+
+
+                            <div className="centerMoreMenu cursorPointer"
+                                style={{ position: "absolute", display: toggleOn ? "block" : "none" }}
+                                ref={domNode}
+
+                            >
+                                <div style={{color:"#f21170"}}>
+                                    <div className="displayFlex" style={{ padding: "10px" }}>
+                                        <DeleteOutlineOutlinedIcon />
+                                        <div style={{ width: "90%" }}>
+                                            <span
+                                                style={{ position: "relative", top: "2px" }}
+                                            >delete</span>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
+
+                            <div className="centerMoreDiv"
+                                style={{ display: toggleOn ? "none" : "block" }}
+                                onClick={handleToggle}
+                            >
+                                <MoreHorizSharpIcon style={{ fontSize: "18px", display: "flex" }}
+                                    className="centerMore smallIconsColor "
+
+                                />
+                            </div>
+
+
                         </div>
                         <div className="width100">
                             <span className="whiteText" style={{ display: "inline-flex" }}>{props.tweet}</span>
@@ -57,7 +121,7 @@ export default function DisplayTweet(props) {
                         </div>
                     </div>
                 </div>
-                <div style={{height:"10px"}}></div>
+                <div style={{ height: "10px" }}></div>
             </div>
         </div>
     )

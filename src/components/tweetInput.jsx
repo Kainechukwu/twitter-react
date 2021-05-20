@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import TweetService from "./tweetService";
 import Icons from "./inputIcons"
 // import Button from '@material-ui/core/Button';
@@ -7,33 +8,53 @@ import Icons from "./inputIcons"
 
 export default function TweetInput() {
 
+
+
     const [tweet, setTweet] = useState({
         tweet: ""
     });
 
-    function handleChange(event) {
-       const {value} = event.target;
+    const [tweeted, setTweeted] = useState(false)
 
-        setTweet(()=> {
-            return{
+    function handleChange(event) {
+        const { value } = event.target;
+
+        setTweet(() => {
+            return {
                 tweet: value
             }
         });
     }
     // console.log(tweet)
 
+    // let history = useHistory();
+
+
     function handleClick(event) {
 
         TweetService.sendTweet(tweet, (response) => {
-            // console.log(response);
+            console.log(response);
+            // history.push("/userpageReact");
+
+            // setTweeted(true)
+            // useEffect(() => {
+
+            // }, [tweeted]);
+            setTweet(() => {
+                return {
+                    tweet: ""
+                }
+            });
+
+
         }, (err) => {
             console.log(err);
         });
 
-        
 
 
-        event.preventDefault()
+
+        // event.preventDefault()
     }
 
     return (
@@ -44,7 +65,7 @@ export default function TweetInput() {
                 <div className="outerCenterImageDiv">
                     <div>
                         img
-                </div>
+                    </div>
                 </div>
                 <div className="formDiv">
 
@@ -52,7 +73,13 @@ export default function TweetInput() {
                     <form onSubmit={handleClick}>
 
                         <div className="topAndBottomPadding">
-                            <input className="centerTweetInput" onChange={handleChange} type="text" placeholder="What is happening?" value={tweet.value} name="tweet"/>
+                            <input className="centerTweetInput whiteText"
+                                onChange={handleChange}
+                                type="text" placeholder="What is happening?"
+                                value={tweet.value}
+                                name="tweet"
+                                autocomplete="off"
+                            />
                         </div>
 
                         <div className="displayFlex buttonAndIconsDiv">

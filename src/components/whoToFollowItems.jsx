@@ -81,7 +81,7 @@ export default function WhoToFollowItems(props) {
         API.delete("/unfollow", data, (response) => {
             if (response.status === 200) {
                 console.log("successfully unfollowed person")
-                console.log(response);
+                // console.log(response);
                 setFollowing(false);
             }
         }, (err) => {

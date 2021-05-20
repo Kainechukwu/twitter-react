@@ -10,6 +10,19 @@
 
 }
 
+.centerMoreMenu{
+    background-color: #15202B;
+    position: absolute;
+    display: block;
+    width: 45%;
+    border-radius: 5px;
+    right: 0;
+    z-index: 1;
+    box-shadow: rgb(136 153 166 / 20%) 0px 0px 15px, rgb(136 153 166 / 15%) 0px 0px 3px 1px;
+
+
+}
+
 .tweetStatsSpan{
     font-size: 14px;
     font-family: sans-serif;
