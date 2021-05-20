@@ -4,6 +4,7 @@ import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import TweetStats from "./tweetStatsCompo"
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import Menu from "./menu"
 
 const useStyles = makeStyles({
     tweetStatsIcons: {
@@ -53,7 +54,7 @@ export default function DisplayTweet(props) {
 
 
     return (
-        <div style={{ paddingTop: "12px" }}>
+        <div className= {toggleOn ? "" : "divHover"} style={{ paddingTop: "12px" }}>
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
@@ -67,7 +68,7 @@ export default function DisplayTweet(props) {
                             <time className="sansSerif fontSizeInherit smallIconsColor">5m</time>
 
 
-                            <div className="centerMoreMenu cursorPointer"
+                            {/* <div className="centerMoreMenu cursorPointer"
                                 style={{ position: "absolute", display: toggleOn ? "block" : "none" }}
                                 ref={domNode}
 
@@ -83,7 +84,8 @@ export default function DisplayTweet(props) {
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <Menu domNode={domNode} toggleOn={toggleOn} />
 
                             <div className="centerMoreDiv"
                                 style={{ display: toggleOn ? "none" : "block" }}
