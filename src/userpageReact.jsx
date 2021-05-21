@@ -8,6 +8,7 @@ import DisplayTweet from "./components/displayTweet";
 import useFetch from "react-fetch-hook";
 import RightSide from "./components/rightSide";
 import Messages from "./components/messages";
+import Feeds from "./components/feeds"
 
 const useStyles = makeStyles({
     userPage: {
@@ -23,10 +24,11 @@ const useStyles = makeStyles({
 
 
 
-export default function UserPage() {
+export default function UserPage(props) {
 
     const classes = useStyles();
     const user_id = localStorage.getItem("user_id");
+    const [rendered, setRendered] = useState(0)
 
     const { isLoading, data, error } = useFetch(
         "/userHomePage?page=1&limit=10",
@@ -40,7 +42,7 @@ export default function UserPage() {
 
     console.log("data", data);
     console.log("isLoading", isLoading);
-   
+
 
     if (error) {
         return <div>
@@ -48,6 +50,8 @@ export default function UserPage() {
             <p>Message: ${error.statusText}</p>
         </div>
     }
+
+    console.log("rendered", rendered)
 
 
 
@@ -63,29 +67,18 @@ export default function UserPage() {
 
                 <div style={{ width: "60%" }}>
                     <div className="borderRight">
-                        <CenterPage />
-                        {data.resArray.map((obj) => {
+                        <CenterPage
+                            setRendered={() => setRendered((prev) => prev + 1)} />
+                        
+                        {/* -------------------FEEDS------------------- */}
+                        <Feeds data={data} rendered={rendered} />
 
-
-                            return <DisplayTweet
-                                key={obj._id}
-                                _id={obj._id}
-                                user_id={obj.user_id}
-                                username={obj.firstName}
-                                handle={obj.lastName}
-                                tweet={obj.tweet}
-
-                            />
-
-                        })}
-
-                        {/* <DisplayTweet /> */}
                     </div>
                 </div>
 
                 <RightSide />
 
-                
+
 
             </div>
 

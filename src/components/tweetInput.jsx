@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import TweetService from "./tweetService";
 import Icons from "./inputIcons"
+import { PinDropSharp } from "@material-ui/icons";
 // import Button from '@material-ui/core/Button';
 
 
 
-export default function TweetInput() {
+export default function TweetInput(props) {
 
 
 
@@ -14,7 +15,7 @@ export default function TweetInput() {
         tweet: ""
     });
 
-    const [tweeted, setTweeted] = useState(false)
+    // const [tweeted, setTweeted] = useState(false)
 
     function handleChange(event) {
         const { value } = event.target;
@@ -27,6 +28,9 @@ export default function TweetInput() {
 
     // let history = useHistory();
 
+    function  run (fn) {
+        return fn
+    }
 
     function handleClick(event) {
 
@@ -36,9 +40,8 @@ export default function TweetInput() {
             // history.push("/userpageReact");
 
             setTweet({tweet: ""});
-          
 
-
+            // run(props.setRendered)
 
         }, (err) => {
             console.log(err);
@@ -79,7 +82,7 @@ export default function TweetInput() {
                         <div className="displayFlex buttonAndIconsDiv">
                             <Icons />
                             <div className="tweetSubmitDiv">
-                                <button className="tweetSubmit" type="submit"><span>Tweet</span></button>
+                                <button className="tweetSubmit" type="submit" onClick={props.setRendered}><span>Tweet</span></button>
                             </div>
 
                         </div>

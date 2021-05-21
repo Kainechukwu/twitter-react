@@ -37,6 +37,7 @@ let useClickOutside = (handler) => {
 
 export default function DisplayTweet(props) {
     const [toggleOn, setToggleOn] = useState(false);
+    // const [rendered, setRendered] = useState({...props.render})
     const classes = useStyles();
 
     // if(!props||props.tweet) return <p>No tweets</p>
