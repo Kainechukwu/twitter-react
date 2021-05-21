@@ -69,6 +69,7 @@ export default function UserPage() {
 
                             return <DisplayTweet
                                 key={obj._id}
+                                _id={obj._id}
                                 user_id={obj.user_id}
                                 username={obj.firstName}
                                 handle={obj.lastName}

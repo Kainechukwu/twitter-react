@@ -4,7 +4,7 @@ import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 
 export default function TrendsItem(props) {
     return (
-        <div className="width100 borderBottom cursorPointer">
+        <div className="width100 borderBottom cursorPointer divHover">
             <div className="flexColumn" style={{padding: "12px 14px"}}>
                 <div className="displayFlex relative smallIconsColor sansSerif">
                     <span>{props.location}</span>

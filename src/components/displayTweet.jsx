@@ -54,7 +54,7 @@ export default function DisplayTweet(props) {
 
 
     return (
-        <div className= {toggleOn ? "" : "divHover"} style={{ paddingTop: "12px" }}>
+        <div className= {toggleOn ? "" : "divHover cursorPointer"} style={{ paddingTop: "12px" }}>
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
@@ -68,24 +68,8 @@ export default function DisplayTweet(props) {
                             <time className="sansSerif fontSizeInherit smallIconsColor">5m</time>
 
 
-                            {/* <div className="centerMoreMenu cursorPointer"
-                                style={{ position: "absolute", display: toggleOn ? "block" : "none" }}
-                                ref={domNode}
-
-                            >
-                                <div style={{color:"#f21170"}}>
-                                    <div className="displayFlex" style={{ padding: "10px" }}>
-                                        <DeleteOutlineOutlinedIcon />
-                                        <div style={{ width: "90%" }}>
-                                            <span
-                                                style={{ position: "relative", top: "2px" }}
-                                            >delete</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div> */}
-                            <Menu domNode={domNode} toggleOn={toggleOn} />
+                        {/* ---------------------MENU----------------------- */}
+                            <Menu domNode={domNode} toggleOn={toggleOn} user_id={props.user_id} tweet_id={props._id}/>
 
                             <div className="centerMoreDiv"
                                 style={{ display: toggleOn ? "none" : "block" }}

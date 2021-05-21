@@ -94,7 +94,7 @@ export default function WhoToFollowItems(props) {
 
 
     return (
-        <div className="width100 borderBottom cursorPointer">
+        <div className="width100 borderBottom cursorPointer divHover">
             <div style={{ padding: "12px 14px" }}>
 
                 <div className="displayFlex" style={{ height: "45px" }}>

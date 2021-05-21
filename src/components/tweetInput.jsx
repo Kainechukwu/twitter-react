@@ -19,11 +19,9 @@ export default function TweetInput() {
     function handleChange(event) {
         const { value } = event.target;
 
-        setTweet(() => {
-            return {
+        setTweet({
                 tweet: value
-            }
-        });
+            });
     }
     // console.log(tweet)
 
@@ -34,17 +32,12 @@ export default function TweetInput() {
 
         TweetService.sendTweet(tweet, (response) => {
             console.log(response);
+            console.log("tweet: ", tweet)
             // history.push("/userpageReact");
 
-            // setTweeted(true)
-            // useEffect(() => {
+            setTweet({tweet: ""});
+          
 
-            // }, [tweeted]);
-            setTweet(() => {
-                return {
-                    tweet: ""
-                }
-            });
 
 
         }, (err) => {
@@ -54,8 +47,9 @@ export default function TweetInput() {
 
 
 
-        // event.preventDefault()
+        event.preventDefault()
     }
+
 
     return (
         <div className="tbPadding16px lrMargin">
@@ -76,9 +70,9 @@ export default function TweetInput() {
                             <input className="centerTweetInput whiteText"
                                 onChange={handleChange}
                                 type="text" placeholder="What is happening?"
-                                value={tweet.value}
+                                value={tweet.tweet}
                                 name="tweet"
-                                autocomplete="off"
+                                autoComplete="off"
                             />
                         </div>
 
