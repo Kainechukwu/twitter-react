@@ -21,16 +21,16 @@ export default function TweetInput(props) {
         const { value } = event.target;
 
         setTweet({
-                tweet: value
-            });
+            tweet: value
+        });
     }
     // console.log(tweet)
 
     // let history = useHistory();
 
-    function  run (fn) {
-        return fn
-    }
+    // function run(fn) {
+    //     return fn
+    // }
 
     function handleClick(event) {
 
@@ -39,7 +39,7 @@ export default function TweetInput(props) {
             console.log("tweet: ", tweet)
             // history.push("/userpageReact");
 
-            setTweet({tweet: ""});
+            setTweet({ tweet: "" });
 
             // run(props.setRendered)
 
@@ -82,7 +82,11 @@ export default function TweetInput(props) {
                         <div className="displayFlex buttonAndIconsDiv">
                             <Icons />
                             <div className="tweetSubmitDiv">
-                                <button className="tweetSubmit" type="submit" onClick={props.setRendered}><span>Tweet</span></button>
+                                <button className="tweetSubmit" type="submit"
+                                onClick={props.setRendered}
+                                >
+                                    <span>Tweet</span>
+                                </button>
                             </div>
 
                         </div>

@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import API from "./axiosAPIs";
 import Navbar from "./components/navbar";
 import CenterPage from "./components/centerPage";
-import DisplayTweet from "./components/displayTweet";
-import useFetch from "react-fetch-hook";
+// import DisplayTweet from "./components/displayTweet";
+// import useFetch from "react-fetch-hook";
 import RightSide from "./components/rightSide";
 import Messages from "./components/messages";
 import Feeds from "./components/feeds"
@@ -27,37 +27,14 @@ const useStyles = makeStyles({
 export default function UserPage(props) {
 
     const classes = useStyles();
-    const user_id = localStorage.getItem("user_id");
-    const [rendered, setRendered] = useState(0)
-
-    const { isLoading, data, error } = useFetch(
-        "/userHomePage?page=1&limit=10",
-        {
-            headers: {
-                user_id: user_id
-            }
-        });
-
-
-
-    console.log("data", data);
-    console.log("isLoading", isLoading);
-
-
-    if (error) {
-        return <div>
-            <p>Code: ${error.status}</p>
-            <p>Message: ${error.statusText}</p>
-        </div>
-    }
+   
+    const [rendered, setRendered] = useState(0);
 
     console.log("rendered", rendered)
 
 
 
-    return isLoading && !data ? (
-        <div>Loading...</div>
-    ) : (
+    return (
         <div className={classes.userPage}>
 
             <Navbar />
@@ -68,10 +45,15 @@ export default function UserPage(props) {
                 <div style={{ width: "60%" }}>
                     <div className="borderRight">
                         <CenterPage
-                            setRendered={() => setRendered((prev) => prev + 1)} />
+                            setRendered={() => setRendered((prev) => prev + 1)}
+                             />
                         
                         {/* -------------------FEEDS------------------- */}
-                        <Feeds data={data} rendered={rendered} />
+                        <Feeds 
+                        // data={data}
+                         rendered={rendered} 
+
+                         />
 
                     </div>
                 </div>

@@ -33,7 +33,10 @@ export default function CenterPage(props) {
         
             <div className="">
                 <CenterHeader />
-                <TweetInput setRendered={props.setRendered}/>
+                <TweetInput 
+                setRendered={props.setRendered}
+
+                />
                 <div className="borderTop borderBottom" style={{ height: "12px", backgroundColor: "#192734" }}></div>
                 {/* <div>
                    
