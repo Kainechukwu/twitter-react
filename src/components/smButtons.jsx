@@ -4,7 +4,7 @@ export default function SmButton(props){
     const bc=props.background
     return(
         <div className="smButtons"
-        // onClick={handleFollow}
+        onClick={props.action}
         style={{ width: "76px", backgroundColor:bc}}
     >
         <div className=" followButtonSpanDiv cursorPointer">
