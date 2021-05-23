@@ -5,25 +5,29 @@ import useClickOutside from "../useClickOutside"
 
 
 
-export default function DeleteYN(props) {
+export default function UnfollowYN(props) {
     let domNode = useClickOutside(() => {
         {props.setToggleOff()}
         // {props.menuOn()}
     })
 
-    function handleDelete(){
+    const user_id = localStorage.getItem("user_id");
+
+
+    function handleUnfollow(){
 
         const data = {
-            _id: props.tweet_id
+            user_id: user_id,
+            following_id: props.user_id
         }
 
-        API.delete("/deleteTweet", data, (response) => {
+        API.delete("/unfollow", data, (response) => {
             if (response.status === 200) {
                 // setPush(true)
                 // props.history.push("/userpageReact", push);
                 window.location.reload(false);
                 console.log("props", props);
-                console.log("has been deleted");
+                console.log("has been unfollowed");
             }
         }, (err) => {
             console.log(err);
@@ -45,7 +49,7 @@ export default function DeleteYN(props) {
                     
                     <SmButton action={props.setToggleOff} name="cancel" width="76px" background="rgb(37, 51, 65)"/>
 
-                    <SmButton action={handleDelete} name="delete" width="76px" background="#f21170"/>
+                    <SmButton action={handleUnfollow} name="unfollow" width="90px" background="#f21170"/>
 
 
 

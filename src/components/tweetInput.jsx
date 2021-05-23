@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import TweetService from "./tweetService";
 import Icons from "./inputIcons"
-import { PinDropSharp } from "@material-ui/icons";
+// import { PinDropSharp } from "@material-ui/icons";
+import Avatar from "./avatar"
 // import Button from '@material-ui/core/Button';
 
 
@@ -61,7 +62,7 @@ export default function TweetInput(props) {
             <div className="displayFlex">
                 <div className="outerCenterImageDiv">
                     <div>
-                        img
+                        <Avatar fontSize="29px"/>
                     </div>
                 </div>
                 <div className="formDiv">

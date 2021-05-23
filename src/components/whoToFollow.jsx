@@ -3,6 +3,7 @@ import WhoToFollowHeader from "./whoToFollowHeader";
 import WhoToFollowItems from "./whoToFollowItems";
 import TrendsFooter from "./trendsFooter";
 import useFetch from "react-fetch-hook";
+import Avatar from "./avatar"
 
 
 export default function WhoToFollow() {
@@ -46,7 +47,7 @@ export default function WhoToFollow() {
                 <WhoToFollowHeader />
                 {data.map((obj) => {
                     return <WhoToFollowItems
-                        img="img"
+                        img={<Avatar fontSize="28px"/>}
                         key={obj._id}
                         user_id={obj._id}
                         username={obj.firstName} 

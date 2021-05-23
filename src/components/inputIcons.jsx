@@ -9,19 +9,19 @@ function Icons(){
     return(
         <div className="displayFlex tweetSubmitDiv iconsPositioning blueIcon">
             <div className="inputIcons">
-                <CropOriginalOutlinedIcon />
+                <CropOriginalOutlinedIcon style={{fontSize: "23px"}}/>
             </div>
             <div className="inputIcons">
-                <GifOutlinedIcon />
+                <GifOutlinedIcon style={{fontSize: "23px"}}/>
             </div>
             <div className="inputIcons">
-                <PollOutlinedIcon />
+                <PollOutlinedIcon style={{fontSize: "23px"}}/>
             </div>
             <div className="inputIcons">
-                <SentimentSatisfiedSharpIcon />
+                <SentimentSatisfiedSharpIcon style={{fontSize: "23px"}}/>
             </div>
             <div className="inputIcons">
-                <ScheduleIcon />
+                <ScheduleIcon style={{fontSize: "23px"}}/>
             </div>
         </div>
         

@@ -5,6 +5,7 @@ import PersonAddDisabledOutlinedIcon from '@material-ui/icons/PersonAddDisabledO
 // import API from "../axiosAPIs"
 import {  withRouter } from "react-router-dom";
 import DeleteYN from "./delete"
+import UnfollowYN from "./unfollow"
 
 
 function Menu(props) {
@@ -63,8 +64,8 @@ function Menu(props) {
             style={{ position: "absolute", display: props.toggleOn ? "block" : "none" }}
             ref={props.domNode}
         >
-         
-            <MenuItem icon = {<PersonAddDisabledOutlinedIcon />} spanName="unfollow" color="white"/>
+            <UnfollowYN user_id={props.user_id} toggle={toggle} setToggleOff = {() => setToggle(false) } />
+            <MenuItem action={toggleOn} icon = {<PersonAddDisabledOutlinedIcon />} spanName="unfollow" color="white"/>
 
         </div>
     )

@@ -3,7 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import TweetStats from "./tweetStatsCompo"
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import Avatar from "./avatar"
+// import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
+import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Menu from "./menu"
 
 const useStyles = makeStyles({
@@ -63,14 +67,14 @@ export default function DisplayTweet(props) {
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
-                        <div>img</div>
+                        <Avatar />
                     </div>
                     <div className="flexColumn width100 fontSize15px">
                         <div className="displayFlex relative">
-                            <span className="fontSizeInherit whiteText">{props.username}</span>
-                            <span className="sansSerif fontSizeInherit smallIconsColor">{props.handle}</span>
-                            <span className="sansSerif fontSizeInherit smallIconsColor">.</span>
-                            <time className="sansSerif fontSizeInherit smallIconsColor">5m</time>
+                            <span className="fontSizeInherit whiteText margin5px">{props.username}</span>
+                            <span className="sansSerif fontSizeInherit smallIconsColor margin5px">{props.handle}</span>
+                            <span className="sansSerif fontSizeInherit smallIconsColor margin5px">.</span>
+                            <time className="sansSerif fontSizeInherit smallIconsColor">{props.date}</time>
 
 
                         {/* ---------------------MENU----------------------- */}
@@ -95,14 +99,14 @@ export default function DisplayTweet(props) {
                             <div className="displayFlex " style={{ width: "84%", marginTop: "1.5%", justifyContent: "space-between" }}>
                                 <TweetStats icon={<ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />} />
 
-                                <TweetStats icon={<ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />} />
+                                <TweetStats icon={<RepeatRoundedIcon style={{transform: "rotate(90deg)"}} className={classes.tweetStatsIcons} />} />
 
-                                <TweetStats icon={<ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />} />
+                                <TweetStats icon={<FavoriteBorderIcon className={classes.tweetStatsIcons} />} />
 
 
                                 <div style={{ width: "21px", position: "relative" }}>
                                     <div className="tweetStatsIconDiv">
-                                        <ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />
+                                        <PublishOutlinedIcon  className={classes.tweetStatsIcons} />
                                     </div>
 
                                 </div>

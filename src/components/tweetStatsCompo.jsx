@@ -4,6 +4,7 @@ import React from "react";
    
 
 export default function TweetStats(props) {
+    let value = Math.floor(Math.random() * 1500)
 
     return (
         <div className="displayFlex ">
@@ -14,7 +15,7 @@ export default function TweetStats(props) {
 
             </div>
             <div>
-                <span className="tweetStatsSpan smallIconsColor">27</span>
+                <span className="tweetStatsSpan smallIconsColor">{value}</span>
             </div>
         </div>
     )
