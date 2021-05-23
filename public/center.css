@@ -23,6 +23,28 @@
 
 }
 
+.deleteNY{
+    bottom: -146px;
+    height: 173px;
+    padding: 10px 30px 18px;
+    width: 343px;
+    color: white;
+    right: -3px;
+    background-color: #15202B;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow: rgb(136 153 166 / 20%) 0px 0px 15px, rgb(136 153 166 / 15%) 0px 0px 3px 1px;
+}
+
+.smButtons{
+    display: table;
+    /* width: 76px; */
+    height: 31px;
+    text-align: center;
+    border-radius: 40px;
+}
+
 .tweetStatsSpan{
     font-size: 14px;
     font-family: sans-serif;

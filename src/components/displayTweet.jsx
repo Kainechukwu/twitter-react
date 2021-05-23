@@ -47,6 +47,10 @@ export default function DisplayTweet(props) {
         })
     }
 
+    function menuOn(){
+        setToggleOn(true)
+    }
+
 
     let domNode = useClickOutside(() => {
         setToggleOn(false);
@@ -70,7 +74,7 @@ export default function DisplayTweet(props) {
 
 
                         {/* ---------------------MENU----------------------- */}
-                            <Menu domNode={domNode} toggleOn={toggleOn} user_id={props.user_id} tweet_id={props._id}/>
+                            <Menu domNode={domNode} toggleOn={toggleOn} user_id={props.user_id} tweet_id={props._id} menuOn={() => setToggleOn(true)}/>
 
                             <div className="centerMoreDiv"
                                 style={{ display: toggleOn ? "none" : "block" }}
