@@ -8,6 +8,10 @@ let useClickOutside = (handler) => {
             if (!domNode.current.contains(event.target)) {
                 handler();
             }
+
+            // if(event.target.id === "userPatch"){
+            //    console.log(event.target.id)
+            // }
         };
         document.addEventListener("mousedown", ifHandler);
 

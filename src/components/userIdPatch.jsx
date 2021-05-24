@@ -6,20 +6,26 @@ import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import AccountButton from "./userAccountButton"
+// import useOutsideAlerter from "./clickOutside"
 
-const MyPopper = ({ isOpen, clickAwayHandler }) => (
-    <ClickAwayListener onClickAway={clickAwayHandler}>
-        <Popper open={isOpen}>
-            <Paper className="popper">There goes my custom popper</Paper>
-        </Popper>
-    </ClickAwayListener>
-)
+import useClickOutside from "../useClickOutside"
+
+
+
 
 
 export default function UserIdPatch(props) {
-    const [isOpen, setIsOpen] = useState(false),
-        clickAwayHandler = () => setIsOpen(false),
-        clickHandler = () => setIsOpen(true)
+
+    const [visible, setVisible] = useState(false);
+
+    let domNode = useClickOutside(() => {
+        setVisible(false);
+    })
+
+    function clickHandler() {
+        setVisible(true);
+    }
+
 
 
     return (
@@ -27,13 +33,19 @@ export default function UserIdPatch(props) {
         <div>
 
 
-            {
-                isOpen && <MyPopper {...{ clickAwayHandler, isOpen }} />
-            }
+            {/* { */}
+            {/* visible &&  */}
+            <div
+                style={{ position: "absolute", display: visible ? "block" : "none" }}
+                className="whiteText" ref={domNode}
+            >
+                Hello
+            </div>
+            {/* } */}
 
             <AccountButton
                 // buttonRef={setReferenceElement}
-                onClick={clickHandler}
+                onClick={visible ? null : clickHandler}
 
             />
 

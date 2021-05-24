@@ -39,6 +39,8 @@ let useClickOutside = (handler) => {
     return domNode
 }
 
+
+
 export default function DisplayTweet(props) {
     const [toggleOn, setToggleOn] = useState(false);
     // const [rendered, setRendered] = useState({...props.render})
@@ -51,9 +53,9 @@ export default function DisplayTweet(props) {
         })
     }
 
-    function menuOn(){
-        setToggleOn(true)
-    }
+    // function menuOn(){
+    //     setToggleOn(true)
+    // }
 
 
     let domNode = useClickOutside(() => {

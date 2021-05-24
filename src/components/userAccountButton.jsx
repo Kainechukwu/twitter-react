@@ -6,6 +6,7 @@ export default function AccountButton(props) {
     return (
         <div 
         // ref={props.buttonRef}
+            id="userPatch"
             onClick={props.onClick}
             role="button"
             className="displayFlex userIdPatch whiteText sansSerif"
