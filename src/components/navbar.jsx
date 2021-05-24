@@ -10,6 +10,7 @@ import ListAltSharpIcon from '@material-ui/icons/ListAltSharp';
 import PersonOutlineSharpIcon from '@material-ui/icons/PersonOutlineSharp';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import TweetButton from "./tweetbutton"
+import UserIdPatch from "./userIdPatch"
 
 const useStyles = makeStyles({
     leftSide: {
@@ -43,7 +44,11 @@ const useStyles = makeStyles({
 function Navbar() {
     const classes = useStyles();
     return (
-        <div className={classes.leftSide} style={{borderColor: "#38444d"}}>
+        <div 
+        className="leftSide yOverflow"
+        // className={classes.leftSide}
+        //  style={{borderColor: "#38444d"}}
+         >
             <div className={classes.navbar}>
                 <div className={classes.twitterIconDiv}><TwitterIcon style={{ fontSize: "33px", color: "rgb(29, 161, 242)" }} /></div>
                 <NavItem name="Home" icon={<HomeIcon/>} />
@@ -56,6 +61,7 @@ function Navbar() {
                 <NavItem name="More" icon={<MoreHorizSharpIcon />} />
                 <TweetButton />
             </div>
+            <UserIdPatch />
 
         </div>
     )

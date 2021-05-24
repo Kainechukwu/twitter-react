@@ -10,6 +10,13 @@
 
 }
 
+.centerHeaderIcon{
+    align-items: center;
+    padding: 0 15px;
+    left: 14px;
+
+}
+
 .centerMoreMenu{
     background-color: #15202B;
     position: absolute;

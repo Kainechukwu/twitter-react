@@ -1,6 +1,7 @@
 @import "/center.css";
 @import "/rightSide.css";
 @import "./componentStyles/tweetInput.css";
+@import "./leftside.css";
 
 .absolute{
     position: absolute;
@@ -96,6 +97,14 @@ body {
     height: 484px;
 }
 
+.fontWeight700{
+    font-weight: 700;
+    
+}
+.fontSize17{
+    font-size: 17px;
+}
+
 .fontSize15px{
     font-size: 15px;
 }
@@ -158,7 +167,7 @@ h2 {
 
 .messagesFixedDiv{
     position: fixed;
-    width: 100%;
+    width: 28%;
     bottom: 0px;
     right: 0;
     height: 50px;
@@ -168,7 +177,7 @@ h2 {
 .messagesBox{
     padding: 0 16px;
     height: 100%;
-    width: 28%;
+    width: 100%;
     position: relative;
     right: 0px;
     border-top-right-radius: 16px;
@@ -199,6 +208,8 @@ h2 {
 .minWidth300 {
     min-width: 463px;
 }
+
+
 
 
 
@@ -310,4 +321,10 @@ h2 {
     
     
    
+}
+
+@media screen and (max-height: 500px){
+    .yOverflow{
+        overflow-y: scroll;
+    }
 }

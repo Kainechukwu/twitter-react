@@ -1,16 +1,10 @@
 import React from "react";
-// import { makeStyles } from '@material-ui/core/styles';
+import CenterHeaderIcon from "./centerHeaderIcon"
+import FlareOutlinedIcon from '@material-ui/icons/FlareOutlined';
 
 
 
-// const useStyles = makeStyles({
-//     // userPage: {
-//     //     backgroundColor: "#00334e",
-//     //     height: "615px"
 
-//     // }
-
-// });
 
 export default function CenterHeader() {
     return (
@@ -20,7 +14,10 @@ export default function CenterHeader() {
                     <span>Home</span>
                 </div>
 
+
             </div>
+
+            <CenterHeaderIcon icon={<FlareOutlinedIcon />}/>
         </div>
     )
 }

@@ -71,7 +71,7 @@ export default function DisplayTweet(props) {
                     </div>
                     <div className="flexColumn width100 fontSize15px">
                         <div className="displayFlex relative">
-                            <span className="fontSizeInherit whiteText margin5px">{props.username}</span>
+                            <span className="whiteText margin5px sansSerif fontWeight700 fontSize17">{props.username}</span>
                             <span className="sansSerif fontSizeInherit smallIconsColor margin5px">{props.handle}</span>
                             <span className="sansSerif fontSizeInherit smallIconsColor margin5px">.</span>
                             <time className="sansSerif fontSizeInherit smallIconsColor">{props.date}</time>
@@ -92,9 +92,13 @@ export default function DisplayTweet(props) {
 
 
                         </div>
+                     
+                     {/* -----------------------tweet text------------------------------- */}
                         <div className="width100">
-                            <span className="whiteText" style={{ display: "inline-flex" }}>{props.tweet}</span>
+                            <span className="whiteText sansSerif fontWeight700" style={{ display: "inline-flex" }}>{props.tweet}</span>
                         </div>
+
+
                         <div className="width100">
                             <div className="displayFlex " style={{ width: "84%", marginTop: "1.5%", justifyContent: "space-between" }}>
                                 <TweetStats icon={<ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />} />
