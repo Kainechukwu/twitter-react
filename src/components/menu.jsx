@@ -54,7 +54,7 @@ function Menu(props) {
             style={{ position: "absolute", display: props.toggleOn ? "block" : "none" }}
             ref={props.domNode}
         >
-             <DeleteYN tweet_id={props.tweet_id} toggle={toggle} setToggleOff = {() => setToggle(false) } menuOn={props.menuOn}/>
+            <DeleteYN tweet_id={props.tweet_id} toggle={toggle} setToggleOff = {() => setToggle(false) } menuOn={props.menuOn}/>
 
             <MenuItem action={toggleOn} icon = {<DeleteOutlineOutlinedIcon />} spanName="delete" color="#f21170"/>
 

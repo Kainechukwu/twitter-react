@@ -5,7 +5,9 @@ import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 export default function AccountButton(props) {
     return (
         <div 
-        // ref={props.buttonRef}
+             ref={props.anchorRef}
+            //  aria-haspopup={props.aria-haspopup}
+            //  aria-controls={props.aria-controls}
             id="userPatch"
             onClick={props.onClick}
             role="button"
