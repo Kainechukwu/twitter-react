@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import SmButton from "./smButtons"
+import API from "../axiosAPIs"
+
 
 
 export default function UploadProfileImage() {
@@ -14,21 +16,23 @@ export default function UploadProfileImage() {
     };
 
     const handleSubmission = () => {
-        const formData = new FormData();
+        const data = new FormData();
 
-        formData.append("File", selectedFile);
+        data.append("file", selectedFile);
 
-        fetch("https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>", {
-            method: "POST",
-            body: formData
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                console.log("Success:", result);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
+        API.post("/imageUpload", data, (response) => {
+            if (response.status === 200) {
+                // localStorage.setItem("user_id", response.headers.user_id);
+                // console.log("user_id:" + localStorage.getItem("user_id"));
+                // history.push("/userpageReact");
+                console.log("response:" + response);
+
+            }
+        }, (err) => {
+            console.log(err)
+        });
+
+ 
     };
 
     const fileInput = useRef();
@@ -51,6 +55,7 @@ export default function UploadProfileImage() {
                         name="file"
                         onChange={changeHandler}
                         ref={fileInput}
+                        accept=".jpg"
                     />
                 </div>
 
