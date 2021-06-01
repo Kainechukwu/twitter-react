@@ -40,8 +40,8 @@ export default function Feeds(props) {
 
 
 
-    console.log("data", data);
-    console.log("isLoading", isLoading);
+    // console.log("data", data);
+    // console.log("isLoading", isLoading);
 
     if (error) {
         return <div>

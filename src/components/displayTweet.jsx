@@ -9,6 +9,8 @@ import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Menu from "./menu"
+import API from "../axiosAPIs"
+// import fileDownload from 'js-file-download';
 
 const useStyles = makeStyles({
     tweetStatsIcons: {
@@ -62,6 +64,19 @@ export default function DisplayTweet(props) {
         setToggleOn(false);
 
     });
+
+    useEffect(() => {
+        API.get(`/imageUpload?user_id=${props.user_id}`, (response) => {
+            if (response.status === 200) {
+             
+                console.log("imagedata", response);
+                // fileDownload(response.data, filename);
+
+            }
+        }, (err) => {
+            console.log(err)
+        });
+    }, []);
 
 
     return (

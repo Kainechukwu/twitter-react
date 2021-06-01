@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "feather-icons": "^4.28.0",
+    "js-file-download": "^0.4.12",
     "local-storage": "^2.0.0",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2",
