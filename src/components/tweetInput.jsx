@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+// import { useHistory } from "react-router-dom";
 import TweetService from "./tweetService";
 import Icons from "./inputIcons"
 // import { PinDropSharp } from "@material-ui/icons";
-import Avatar from "./avatar"
+import Avatar from '@material-ui/core/Avatar';
+import API from "../axiosAPIs"
+
 // import Button from '@material-ui/core/Button';
 
 
 
 export default function TweetInput(props) {
-
+    const [src, setSrc] = useState();
 
 
     const [tweet, setTweet] = useState({
@@ -54,6 +56,22 @@ export default function TweetInput(props) {
         event.preventDefault()
     }
 
+    // useEffect(() => {
+    //     const user_id = localStorage.getItem("user_id");
+    //     API.get(`/imageUpload?user_id=${user_id}`,  (response) => {
+    //         if (response.status === 200) {
+             
+    //             console.log("imagedata", response);
+    //             const data = response.data;
+    //             setSrc(`/imageUpload?user_id=${props.user_id}`)
+               
+
+    //         }
+    //     }, (err) => {
+    //         console.log(err)
+    //     });
+    // });
+
 
     return (
         <div className="tbPadding16px lrMargin">
@@ -62,7 +80,10 @@ export default function TweetInput(props) {
             <div className="displayFlex">
                 <div className="outerCenterImageDiv">
                     <div>
-                        <Avatar fontSize="29px"/>
+                        <Avatar 
+                        // fontSize="29px"
+
+                        />
                     </div>
                 </div>
                 <div className="formDiv">

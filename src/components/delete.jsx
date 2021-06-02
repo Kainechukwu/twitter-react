@@ -8,7 +8,7 @@ import useClickOutside from "../useClickOutside"
 export default function DeleteYN(props) {
     let domNode = useClickOutside(() => {
         {props.setToggleOff()}
-        // {props.menuOn()}
+       
     })
 
     function handleDelete(){

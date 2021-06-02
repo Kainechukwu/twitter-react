@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
-import API from "./axiosAPIs";
+// import API from "./axiosAPIs";
 import Navbar from "./components/navbar";
 import CenterPage from "./components/centerPage";
 // import DisplayTweet from "./components/displayTweet";

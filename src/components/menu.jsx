@@ -10,7 +10,7 @@ import UnfollowYN from "./unfollow"
 
 function Menu(props) {
     const user_id = localStorage.getItem("user_id");
-    const [push, setPush] = useState(false);
+    // const [push, setPush] = useState(false);
 
     const [toggle, setToggle] = useState(false);
 

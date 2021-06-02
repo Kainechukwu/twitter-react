@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 import ModeCommentOutlinedIcon from '@material-ui/icons/ModeCommentOutlined';
 import TweetStats from "./tweetStatsCompo"
-import Avatar from "./avatar"
+import Avatar from '@material-ui/core/Avatar';
 // import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import RepeatRoundedIcon from '@material-ui/icons/RepeatRounded';
@@ -45,6 +45,7 @@ let useClickOutside = (handler) => {
 
 export default function DisplayTweet(props) {
     const [toggleOn, setToggleOn] = useState(false);
+    const [src, setSrc] = useState();
     // const [rendered, setRendered] = useState({...props.render})
     const classes = useStyles();
 
@@ -66,17 +67,21 @@ export default function DisplayTweet(props) {
     });
 
     useEffect(() => {
-        API.get(`/imageUpload?user_id=${props.user_id}`, (response) => {
+        API.get(`/imageUpload?user_id=${props.user_id}`,  (response) => {
             if (response.status === 200) {
              
                 console.log("imagedata", response);
-                // fileDownload(response.data, filename);
+                const data = response.data;
+                setSrc(`/imageUpload?user_id=${props.user_id}`)
+               
 
             }
         }, (err) => {
             console.log(err)
         });
-    }, []);
+    });
+
+    // const imageData = `/imageUpload?user_id=${props.user_id}`
 
 
     return (
@@ -84,7 +89,7 @@ export default function DisplayTweet(props) {
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
-                        <Avatar />
+                        <Avatar src={src && src}/>
                     </div>
                     <div className="flexColumn width100 fontSize15px">
                         <div className="displayFlex relative">
