@@ -9,6 +9,8 @@ export default function UploadProfileImage() {
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
     const [src, setSrc] = useState("");
+
+    
     const changeHandler = (event) => {
         setSelectedFile(event.target.files[0]);
         setIsFilePicked(true);

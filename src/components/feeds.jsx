@@ -71,8 +71,8 @@ export default function Feeds(props) {
                     handle={obj.lastName}
                     tweet={obj.tweet}
                     date={obj.time}
-                // rendered={props.rendered}
-
+                
+ 
                 />
 
             })}

@@ -70,8 +70,7 @@ export default function DisplayTweet(props) {
         API.get(`/imageUpload?user_id=${props.user_id}`,  (response) => {
             if (response.status === 200) {
              
-                console.log("imagedata", response);
-                const data = response.data;
+           
                 setSrc(`/imageUpload?user_id=${props.user_id}`)
                
 

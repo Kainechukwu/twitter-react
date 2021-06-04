@@ -1,8 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 import TweetService from "./tweetService";
-import Icons from "./inputIcons"
-// import { PinDropSharp } from "@material-ui/icons";
+import Icons from "./inputIcons";
 import Avatar from '@material-ui/core/Avatar';
 import API from "../axiosAPIs"
 
@@ -13,12 +12,17 @@ import API from "../axiosAPIs"
 export default function TweetInput(props) {
     const [src, setSrc] = useState();
 
+    const [tweetImage, setTweetImage] = useState({
+        imageState: false,
+        imageSrc: ""
+
+    })
+
 
     const [tweet, setTweet] = useState({
         tweet: ""
     });
 
-    // const [tweeted, setTweeted] = useState(false)
 
     function handleChange(event) {
         const { value } = event.target;
@@ -27,13 +31,7 @@ export default function TweetInput(props) {
             tweet: value
         });
     }
-    // console.log(tweet)
 
-    // let history = useHistory();
-
-    // function run(fn) {
-    //     return fn
-    // }
 
     function handleClick(event) {
 
@@ -56,21 +54,20 @@ export default function TweetInput(props) {
         event.preventDefault()
     }
 
-    // useEffect(() => {
-    //     const user_id = localStorage.getItem("user_id");
-    //     API.get(`/imageUpload?user_id=${user_id}`,  (response) => {
-    //         if (response.status === 200) {
-             
-    //             console.log("imagedata", response);
-    //             const data = response.data;
-    //             setSrc(`/imageUpload?user_id=${props.user_id}`)
-               
+    useEffect(() => {
+        const user_id = localStorage.getItem("user_id");
+        API.get(`/imageUpload?user_id=${user_id}`, (response) => {
+            if (response.status === 200) {
 
-    //         }
-    //     }, (err) => {
-    //         console.log(err)
-    //     });
-    // });
+                setSrc(`/imageUpload?user_id=${user_id}`)
+
+            }
+        }, (err) => {
+            console.log(err)
+        });
+    });
+
+
 
 
     return (
@@ -79,13 +76,16 @@ export default function TweetInput(props) {
 
             <div className="displayFlex">
                 <div className="outerCenterImageDiv">
-                    <div>
-                        <Avatar 
+                    <div >
+                        <Avatar
+                            style={{width: "50px", height: "50px"}}
+                            src={src && src}
                         // fontSize="29px"
 
                         />
                     </div>
                 </div>
+
                 <div className="formDiv">
 
 
@@ -101,11 +101,19 @@ export default function TweetInput(props) {
                             />
                         </div>
 
+                        <div style={{display: tweetImage.imageState ? "flex" : "none", height: "280px", justifyContent: "center"}}>
+                            <div style={{width: "80%", height: "100%"}}>
+                                <img src={tweetImage.imageSrc} alt="Tweet Image" height="100%" width="100%" style={{borderRadius: "71px"}}/>
+                            </div>
+                        </div>
+
+
+
                         <div className="displayFlex buttonAndIconsDiv">
-                            <Icons />
+                            <Icons tweetImage = {setTweetImage}/>
                             <div className="tweetSubmitDiv">
                                 <button className="tweetSubmit" type="submit"
-                                onClick={props.setRendered}
+                                    onClick={props.setRendered}
                                 >
                                     <span>Tweet</span>
                                 </button>
