@@ -22,6 +22,8 @@ export default function UploadProfileImage() {
 
         data.append("file", selectedFile);
 
+        console.log("imgData: ", data)
+
         API.post("/imageUpload", data, (response) => {
             if (response.status === 200) {
                 // localStorage.setItem("user_id", response.headers.user_id);
@@ -43,7 +45,7 @@ export default function UploadProfileImage() {
         fileInput.current.click();
     }
 
-    console.log(selectedFile);
+    // console.log(selectedFile);
 
     return (
         <div>

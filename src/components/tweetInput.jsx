@@ -4,6 +4,7 @@ import TweetService from "./tweetService";
 import Icons from "./inputIcons";
 import Avatar from '@material-ui/core/Avatar';
 import API from "../axiosAPIs"
+import { set } from "local-storage";
 
 // import Button from '@material-ui/core/Button';
 
@@ -20,27 +21,64 @@ export default function TweetInput(props) {
 
 
     const [tweet, setTweet] = useState({
-        tweet: ""
+        tweet: "",
+        tweetImageFile: null
     });
 
 
     function handleChange(event) {
         const { value } = event.target;
 
-        setTweet({
-            tweet: value
+        setTweet((prev) => {
+            return {
+                tweet: value,
+                tweetImageFile: prev.tweetImageFile
+            }
         });
     }
 
+    // function setImage(imageFile) {
+    //     // if (tweet.tweetImageFile !== null) {
+    //     console.log("imageFile: ", imageFile);
+    //     const data = new FormData();
+    //     data.append("file", imageFile);
+
+    //     console.log("data: ", data);
+
+    //     setTweet((prev) => {
+    //         return {
+    //             tweet: prev.tweet,
+    //             tweetImageFile: new FormData().append("file", imageFile)
+    //         }
+    //     });
+
+    //     console.log("TweetImageFile: ", tweet.tweetImageFile);
+    //     // }
+    // }
+
 
     function handleClick(event) {
+        const data = new FormData();
 
-        TweetService.sendTweet(tweet, (response) => {
+        console.log("TweetImageFile: ", tweet.tweetImageFile);
+
+        data.append("file", tweet.tweetImageFile);
+        data.set("data", tweet.tweet);
+
+        console.log("finalData: ", data)
+
+        // console.log("tweet: ", tweet)
+        TweetService.sendTweet(data, (response) => {
             console.log(response);
-            console.log("tweet: ", tweet)
+            // console.log("tweet: ", tweet)
             // history.push("/userpageReact");
 
-            setTweet({ tweet: "" });
+            setTweet(() => {
+                return {
+                    tweet: "",
+                    tweetImageFile: null
+                }
+            });
 
             // run(props.setRendered)
 
@@ -78,7 +116,7 @@ export default function TweetInput(props) {
                 <div className="outerCenterImageDiv">
                     <div >
                         <Avatar
-                            style={{width: "50px", height: "50px"}}
+                            style={{ width: "50px", height: "50px" }}
                             src={src && src}
                         // fontSize="29px"
 
@@ -101,16 +139,23 @@ export default function TweetInput(props) {
                             />
                         </div>
 
-                        <div style={{display: tweetImage.imageState ? "flex" : "none", height: "280px", justifyContent: "center"}}>
-                            <div style={{width: "80%", height: "100%"}}>
-                                <img src={tweetImage.imageSrc} alt="Tweet Image" height="100%" width="100%" style={{borderRadius: "71px"}}/>
+                        <div style={{ display: tweetImage.imageState ? "flex" : "none", height: "280px", justifyContent: "center" }}>
+                            <div style={{ width: "80%", height: "100%" }}>
+                                <img src={tweetImage.imageSrc} alt="Tweet Image" className="tweetImage" />
                             </div>
                         </div>
 
 
 
                         <div className="displayFlex buttonAndIconsDiv">
-                            <Icons tweetImage = {setTweetImage}/>
+                            <Icons
+                                tweetImage={setTweetImage}
+                                // tweet={setTweet}
+                                // setImage={setImage}
+
+                                setTweet={setTweet}
+
+                            />
                             <div className="tweetSubmitDiv">
                                 <button className="tweetSubmit" type="submit"
                                     onClick={props.setRendered}

@@ -70,6 +70,7 @@ export default function Feeds(props) {
                     username={obj.firstName}
                     handle={obj.lastName}
                     tweet={obj.tweet}
+                    tweetImage={obj.tweetImage}
                     date={obj.time}
                 
  

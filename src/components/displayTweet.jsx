@@ -67,12 +67,12 @@ export default function DisplayTweet(props) {
     });
 
     useEffect(() => {
-        API.get(`/imageUpload?user_id=${props.user_id}`,  (response) => {
+        API.get(`/imageUpload?user_id=${props.user_id}`, (response) => {
             if (response.status === 200) {
-             
-           
+
+
                 setSrc(`/imageUpload?user_id=${props.user_id}`)
-               
+
 
             }
         }, (err) => {
@@ -80,15 +80,17 @@ export default function DisplayTweet(props) {
         });
     });
 
+
+
     // const imageData = `/imageUpload?user_id=${props.user_id}`
 
 
     return (
-        <div className= {toggleOn ? "" : "divHover cursorPointer"} style={{ paddingTop: "12px" }}>
+        <div className={toggleOn ? "" : "divHover cursorPointer"} style={{ paddingTop: "12px" }}>
             <div className="borderBottom">
                 <div className="lrMargin displayFlex">
                     <div className="outerCenterImageDiv">
-                        <Avatar src={src && src}/>
+                        <Avatar src={src && src} />
                     </div>
                     <div className="flexColumn width100 fontSize15px">
                         <div className="displayFlex relative">
@@ -98,8 +100,8 @@ export default function DisplayTweet(props) {
                             <time className="sansSerif fontSizeInherit smallIconsColor">{props.date}</time>
 
 
-                        {/* ---------------------MENU----------------------- */}
-                            <Menu domNode={domNode} toggleOn={toggleOn} user_id={props.user_id} tweet_id={props._id} menuOn={() => setToggleOn(true)}/>
+                            {/* ---------------------MENU----------------------- */}
+                            <Menu domNode={domNode} toggleOn={toggleOn} user_id={props.user_id} tweet_id={props._id} menuOn={() => setToggleOn(true)} />
 
                             <div className="centerMoreDiv"
                                 style={{ display: toggleOn ? "none" : "block" }}
@@ -113,25 +115,51 @@ export default function DisplayTweet(props) {
 
 
                         </div>
-                     
-                     {/* -----------------------tweet text------------------------------- */}
+
+                        {/* <div style={{ display: tweetImage.imageState ? "flex" : "none", height: "280px", justifyContent: "center" }}>
+                            <div style={{ width: "80%", height: "100%" }}>
+                                <img src={tweetImage.imageSrc} alt="Tweet Image" className="tweetImage" />
+                            </div>
+                        </div> */}
+
+                        {/* -----------------------tweet text------------------------------- */}
                         <div className="width100">
                             <span className="whiteText sansSerif fontWeight700" style={{ display: "inline-flex" }}>{props.tweet}</span>
                         </div>
+
+
+                        {/* ---------------------------tweet img --------------------------- */}
+                        {
+                            props.tweetImage ?
+                                <div style={{ display: "flex", height: "280px", justifyContent: "center", margin: "7px 0 "}}>
+                                    <div style={{ width: "100%", height: "100%" }}>
+                                        <img src={`/images?path=${props.tweetImage}`} style={{ width: "100%", height: "100%", borderRadius: "20px"}} />
+
+                                    </div>
+
+                                </div>
+
+
+                                :
+                                <div style={{ display: "none", width: "100%" }}>
+                                    <img  />
+                                </div>
+
+                        }
 
 
                         <div className="width100">
                             <div className="displayFlex " style={{ width: "84%", marginTop: "1.5%", justifyContent: "space-between" }}>
                                 <TweetStats icon={<ModeCommentOutlinedIcon className={classes.tweetStatsIcons} />} />
 
-                                <TweetStats icon={<RepeatRoundedIcon style={{transform: "rotate(90deg)"}} className={classes.tweetStatsIcons} />} />
+                                <TweetStats icon={<RepeatRoundedIcon style={{ transform: "rotate(90deg)" }} className={classes.tweetStatsIcons} />} />
 
                                 <TweetStats icon={<FavoriteBorderIcon className={classes.tweetStatsIcons} />} />
 
 
                                 <div style={{ width: "21px", position: "relative" }}>
                                     <div className="tweetStatsIconDiv">
-                                        <PublishOutlinedIcon  className={classes.tweetStatsIcons} />
+                                        <PublishOutlinedIcon className={classes.tweetStatsIcons} />
                                     </div>
 
                                 </div>

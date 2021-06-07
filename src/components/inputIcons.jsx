@@ -22,6 +22,22 @@ function Icons(props) {
             }
 
         })}
+
+        {
+            props.setTweet((prev) => {
+                return {
+                    tweet: prev.tweet,
+                    tweetImageFile: event.target.files[0]
+                }
+            });
+        }
+
+
+
+        // {props.setImage(event.target.files[0])}
+
+        // console.log(event.target.files[0]);
+
     }
 
     function openUploadFolder() {
