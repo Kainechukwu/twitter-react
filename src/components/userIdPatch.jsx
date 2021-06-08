@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import AccountButton from './userAccountButton';
 import MyModal from "./modal"
+import LogoutModal from "./logoutModal";
 // import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -27,6 +28,7 @@ export default function UserIdPatch(props) {
             return;
         }
 
+        handleOpenLogout();
         setOpen(false);
     };
 
@@ -34,7 +36,7 @@ export default function UserIdPatch(props) {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
             return;
         }
-        handleOpenModal()
+        handleOpenModal();
         setOpen(false);
     };
 
@@ -55,6 +57,8 @@ export default function UserIdPatch(props) {
         prevOpen.current = open;
     }, [open]);
 
+    // ----------------Edit Profile Modal---------------
+
     const [openModal, setOpenModal] = useState(false);
 
     function  handleOpenModal () {
@@ -66,10 +70,23 @@ export default function UserIdPatch(props) {
     };
 
 
+    // ---------------logout Modal-----------------------
+    const [openLogout, setOpenLogout] = React.useState(false);
+
+    const handleOpenLogout = () => {
+      setOpenLogout(true);
+    };
+  
+    const handleCloseLogout = () => {
+      setOpenLogout(false);
+    };
+
+
     return (
 
         <div>
             <MyModal open={openModal} handleClose={handleCloseModal}/>
+            <LogoutModal open ={openLogout} handleClose={handleCloseLogout}/>
 
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                 {({ TransitionProps, placement }) => (
