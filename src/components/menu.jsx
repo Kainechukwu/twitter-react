@@ -1,9 +1,9 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import MenuItem from "./menuItem"
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import PersonAddDisabledOutlinedIcon from '@material-ui/icons/PersonAddDisabledOutlined';
 // import API from "../axiosAPIs"
-import {  withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import DeleteYN from "./delete"
 import UnfollowYN from "./unfollow"
 
@@ -13,6 +13,8 @@ function Menu(props) {
     // const [push, setPush] = useState(false);
 
     const [toggle, setToggle] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     // function handleToggle() {
     //     setToggle(function (prevValue) {
@@ -20,7 +22,7 @@ function Menu(props) {
     //     })
     // }
 
- 
+
 
     // function handleDelete(){
 
@@ -43,8 +45,12 @@ function Menu(props) {
 
     // }
 
-    function toggleOn (){
+    function toggleOn() {
         setToggle(true)
+    }
+
+    function openDelete() {
+        setOpen(true)
     }
 
 
@@ -54,9 +60,24 @@ function Menu(props) {
             style={{ position: "absolute", display: props.toggleOn ? "block" : "none" }}
             ref={props.domNode}
         >
-            <DeleteYN tweet_id={props.tweet_id} toggle={toggle} setToggleOff = {() => setToggle(false) } menuOn={props.menuOn}/>
+            <DeleteYN
+                tweet_id={props.tweet_id}
+                open={open}
+                handleClose={function () {
+                    setOpen(false);
+                    // {props.menuOn()};//lets delete menuItem pop up after modal click outside
+                }}
 
-            <MenuItem action={toggleOn} icon = {<DeleteOutlineOutlinedIcon />} spanName="delete" color="#f21170"/>
+
+            />
+
+            <MenuItem
+                action={openDelete}
+                icon={<DeleteOutlineOutlinedIcon />}
+                spanName="delete"
+                color="#f21170"
+
+            />
 
         </div>
     ) : (
@@ -64,8 +85,17 @@ function Menu(props) {
             style={{ position: "absolute", display: props.toggleOn ? "block" : "none" }}
             ref={props.domNode}
         >
-            <UnfollowYN user_id={props.user_id} toggle={toggle} setToggleOff = {() => setToggle(false) } />
-            <MenuItem action={toggleOn} icon = {<PersonAddDisabledOutlinedIcon />} spanName="unfollow" color="white"/>
+            <UnfollowYN
+                user_id={props.user_id}
+                toggle={toggle}
+                setToggleOff={() => setToggle(false)}
+
+            />
+            <MenuItem
+                action={toggleOn}
+                icon={<PersonAddDisabledOutlinedIcon
+
+                />} spanName="unfollow" color="white" />
 
         </div>
     )

@@ -3,6 +3,11 @@
     padding-right: 16px;
 }
 
+.center{
+    width: 60%;
+
+}
+
 .centerHeader{
     color: white;
     width: 90%;
@@ -44,6 +49,44 @@
     box-shadow: rgb(136 153 166 / 20%) 0px 0px 15px, rgb(136 153 166 / 15%) 0px 0px 3px 1px;
 }
 
+.mainPageDiv{
+    width: 73%;
+    margin-left: 24%; 
+    justify-content: space-between;
+}
+
+.mobileNavbar{
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    background-color: #15202B;
+    box-shadow: rgb(136 153 166 / 20%) 0px 0px 15px, rgb(136 153 166 / 15%) 0px 0px 3px 1px;
+
+}
+
+.mobileNavbarAndButton{
+    display: none;
+    position: fixed;
+    color: white;
+}
+
+.mobileNavbarIcons{
+    
+    width: 25%;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.mobileTweetButton{
+    z-index: 1;
+    width: 12px;
+    justify-content: center;
+    bottom: 69px;
+    right: 29px;
+}
+
 .smButtons{
     display: table;
     /* width: 76px; */
@@ -63,4 +106,60 @@
     position: absolute;
     left: -23%;
     top: -5px;
+}
+
+@media screen and (max-width: 1125px){
+
+ .mainPageDiv{
+    width: 85%;
+    margin-left: 12%; 
+    justify-content: space-between;
+ }
+}
+
+@media screen and (max-width: 895px){
+    .center{
+        width: 100%;
+    
+    }
+
+    .rightSideHide{
+       display: none !important;
+    }
+
+    .mainPageDiv {
+        width: 584px;
+        margin-left: 129px;
+        /* justify-content: space-between; */
+    }
+
+
+ 
+}
+
+@media screen and (max-width: 693px){
+    .inputIconsHide{
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width: 627px){
+    .mainPageDiv {
+        margin-left: 101px;
+        width: 79%;
+    }
+}
+
+@media screen and (max-width: 475px){
+
+
+    .mainPageDiv {
+        margin-left: 0;
+        width: 475px;
+    }
+
+    .mobileNavbarAndButton{
+        display: flex;
+    }
 }

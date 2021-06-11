@@ -4,6 +4,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SmButton from "./smButtons"
+import { useHistory } from "react-router-dom";
+import API from "../axiosAPIs"
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,23 +26,28 @@ const useStyles = makeStyles((theme) => ({
 export default function LogoutModal(props) {
     const classes = useStyles();
 
+    let history = useHistory();
+
     function handleLogout(){
 
         // const data = {
         //     _id: props.tweet_id
         // }
 
-        // API.delete("/deleteTweet", data, (response) => {
-        //     if (response.status === 200) {
-        //         // setPush(true)
-        //         // props.history.push("/userpageReact", push);
-        //         window.location.reload(false);
-        //         console.log("props", props);
-        //         console.log("has been deleted");
-        //     }
-        // }, (err) => {
-        //     console.log(err);
-        // });
+        API.get("/logout", (response) => {
+            if (response.status === 200) {
+                // setPush(true)
+                // props.history.push("/userpageReact", push);
+                // window.location.reload(false);
+                // console.log("props", props);
+                // console.log("has been deleted");
+                console.log("logged out")
+                history.push("/loginReact");
+
+            }
+        }, (err) => {
+            console.log(err);
+        });
 
         console.log("logout")
 

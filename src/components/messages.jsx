@@ -3,7 +3,7 @@ import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
 import DoubleArrowOutlinedIcon from '@material-ui/icons/DoubleArrowOutlined';
 export default function Messages() {
     return (
-        <div className="messagesFixedDiv">
+        <div className="messagesFixedDiv rightSideHide">
             <div className="displayFlex messagesBox"
             // style={{ padding: "16px" }}
             >

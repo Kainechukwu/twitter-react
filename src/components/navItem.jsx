@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         display: "inline-block",
         padding: "8px 15px",
         flexDirection: "row",
-        borderRadius:   "40px"
+        borderRadius: "40px"
     },
     navIcon: {
         position: "relative",
@@ -34,14 +34,14 @@ function NavItem(props) {
 
     const [hover, setHover] = useState(false)
 
-    function handleMouseOver(){
+    function handleMouseOver() {
         setHover(true)
-        
+
     }
 
-    function handleMouseOut(){
+    function handleMouseOut() {
         setHover(false)
-        
+
 
     }
 
@@ -53,14 +53,22 @@ function NavItem(props) {
             {/* // <div><Typography variant="h6" className={classes.navbarText}>{props.name}</Typography></div>
         // style={{ marginBottom: "25px", marginRight: "20px" }} */}
 
-            <Link  to={{ pathname: "/userpageReact" }} style={{ textDecoration: "none" }}>
+            <Link to={{ pathname: "/userpageReact" }} style={{ textDecoration: "none" }}>
                 <div >
-                    <div className={classes.navbarItem} style={{backgroundColor: hover ? "#1f3556" : "inherit"}}>
-                        <div className={classes.navIcon} style={{color: hover? "rgba(29,161,242,1.00)": "white"}}>
+                    <div className="navbarItem" style={{ backgroundColor: hover ? "#1f3556" : "inherit" }}>
+                        <div className="navIcon" style={{ color: hover ? "rgba(29,161,242,1.00)" : "white" }}>
                             {props.icon}
                         </div>
-                        <div style={{display: "inline-block"}}>
-                            <span><Typography style={{color: hover? "rgba(29,161,242,1.00)": "white"}} variant="h6" className={classes.navbarText}>{props.name}</Typography></span>
+                        <div className="noNavIconName inlineBlock">
+                            <span>
+                                <Typography
+                                    style={{ color: hover ? "rgba(29,161,242,1.00)" : "white" }}
+                                    variant="h6"
+                                    className={classes.navbarText}
+                                >
+                                    {props.name}
+                                </Typography>
+                            </span>
                         </div>
                     </div>
                 </div>

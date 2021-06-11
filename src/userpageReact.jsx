@@ -4,18 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 // import API from "./axiosAPIs";
 import Navbar from "./components/navbar";
 import CenterPage from "./components/centerPage";
-// import DisplayTweet from "./components/displayTweet";
-// import useFetch from "react-fetch-hook";
+import CenterHeader from "./components/centerHeader"
+import MobileNavbar from "./components/mobileNavbar"
 import RightSide from "./components/rightSide";
 import Messages from "./components/messages";
-import Feeds from "./components/feeds"
+import Feeds from "./components/feeds";
+import MobileTweetButton from "./components/mobileTweetButton"
 
 const useStyles = makeStyles({
     userPage: {
-        height: "615px",
+        height: "685px",
         flexDirection: "row",
         display: "flex",
-        backgroundColor: "#15202B"
+        backgroundColor: "#15202B",
+        maxWidth: "1330px",
+        margin: "auto"
 
 
     }
@@ -27,7 +30,7 @@ const useStyles = makeStyles({
 export default function UserPage(props) {
 
     const classes = useStyles();
-   
+
     const [rendered, setRendered] = useState(0);
 
     console.log("rendered", rendered)
@@ -39,21 +42,26 @@ export default function UserPage(props) {
 
             <Navbar />
             <div
-                className="displayFlex"
-                style={{ width: "73%", marginLeft: "24%", justifyContent: "space-between" }}>
+                className="displayFlex mainPageDiv"
+            // style={{ width: "73%", marginLeft: "24%", justifyContent: "space-between" }}
+            >
 
-                <div style={{ width: "60%" }}>
-                    <div className="borderRight">
+                <div className="center"
+                //  style={{ width: "60%" }}
+                >
+                    <div className="borderRight borderLeft">
+
+                        <CenterHeader />
                         <CenterPage
                             setRendered={() => setRendered((prev) => prev + 1)}
-                             />
-                        
-                        {/* -------------------FEEDS------------------- */}
-                        <Feeds 
-                        // data={data}
-                         rendered={rendered} 
+                        />
 
-                         />
+                        {/* -------------------FEEDS------------------- */}
+                        <Feeds
+                            // data={data}
+                            rendered={rendered}
+
+                        />
 
                     </div>
                 </div>
@@ -65,6 +73,10 @@ export default function UserPage(props) {
             </div>
 
             <Messages />
+
+            <MobileTweetButton />
+
+            <MobileNavbar />
 
         </div>
 

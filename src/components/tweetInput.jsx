@@ -113,7 +113,7 @@ export default function TweetInput(props) {
 
 
             <div className="displayFlex">
-                <div className="outerCenterImageDiv">
+                <div className="outerCenterTweetInputImageDiv">
                     <div >
                         <Avatar
                             style={{ width: "50px", height: "50px" }}

@@ -143,7 +143,9 @@ h2 {
     bottom: 3px;
 }
 
-
+.inlineBlock{
+    display: inline-block;
+}
 
 .linkDiv a {
     height: 45px;
@@ -233,6 +235,8 @@ h2 {
 } */
 
 
+
+
 .none{
     display: none;
 }
@@ -287,6 +291,13 @@ h2 {
     color: rgb(136, 153, 166);
     
 
+}
+
+.sticky{
+    position: sticky;
+    top: 0px;
+    background-color: #15202B;
+    z-index: 1;
 }
 
 /* span{
@@ -363,3 +374,4 @@ h2 {
         overflow-y: scroll;
     }
 }
+

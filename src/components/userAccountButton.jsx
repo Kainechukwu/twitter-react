@@ -34,14 +34,14 @@ export default function AccountButton(props) {
                     <Avatar src={src && src} style={{ backgroundColor: "#253341", color: "rgb(136, 153, 166)" }} />
                 </div>
 
-                <div className="flexColumn" style={{ width: "60%" }}>
+                <div className="flexColumn noNavIconName" style={{ width: "60%" }}>
                     <div style={{ fontWeight: "700" }}>name</div>
                     <div className="smallIconsColor sansSerif">@handle</div>
                 </div>
 
 
             </div>
-            <div className="displayFlex" style={{ alignItems: "center" }}>
+            <div className="displayFlex noNavIconName" style={{ alignItems: "center" }}>
                 <MoreHorizOutlinedIcon />
             </div>
 

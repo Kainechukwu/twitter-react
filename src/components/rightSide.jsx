@@ -6,7 +6,7 @@ import RightSideFooter from "./rightSideFooter";
 
 export default function RightSide(){
     return (
-        <div className="rightSide flexColumn fontSize15px">
+        <div className="rightSide flexColumn fontSize15px rightSideHide">
             <Search />
             <Trends />
             <WhoToFollow />

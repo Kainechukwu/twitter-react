@@ -1,6 +1,6 @@
 import React from "react";
 // import { makeStyles } from '@material-ui/core/styles';
-import CenterHeader from "./centerHeader"
+// import CenterHeader from "./centerHeader"
 import TweetInput from "./tweetInput"
 // import DisplayTweet from "./displayTweet"
 
@@ -32,7 +32,7 @@ export default function CenterPage(props) {
     return (
         
             <div className="">
-                <CenterHeader />
+                {/* <CenterHeader /> */}
                 <TweetInput 
                 setRendered={props.setRendered}
 

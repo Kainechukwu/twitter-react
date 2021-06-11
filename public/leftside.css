@@ -8,9 +8,30 @@
     width: 21%;
     height: 100%;
     margin-left: 3%;
-    border-right:1px solid #38444d;
+    /* border-right:1px solid #38444d; */
     position: fixed;
     
+}
+
+.navIcon{
+    position: relativ;
+    top: 3px;
+    margin-right: 10px;
+    display: inline-block;
+    color: white;
+    font-size: 27px;
+}
+
+.navbarItem{
+    display: inline-block ;
+    padding: 8px 15px ;
+    flex-direction: row;
+    border-radius: 40px; 
+}
+
+
+.tweetButtonIconSpan{
+    display: none;
 }
 
 .userIdPatch{
@@ -25,3 +46,84 @@
     background-color: #1f3556;
 }
 
+@media screen and (min-width: 1318px){
+    .leftSide {
+        width: 274px;
+        margin-left: 3%;
+        
+    }
+}
+
+@media screen and (max-width: 1177px){
+    .leftSide {
+        width: 22%;
+        /* height: 100%; */
+        margin-left: 2%;
+        /* border-right: 1px solid #38444d;
+        position: fixed; */
+    }
+}
+
+@media screen and (max-width: 1125px){
+    .noNavIconName {
+        display: none !important;
+        /* margin: auto; */
+    }
+
+    .navIcon{
+       margin: auto;
+    }
+
+    .leftSide {
+        width: 11%;
+        margin-left: 1%;
+    }
+
+    .navbarItem{
+        width: 18px;
+        display: flex;
+        place-content: center;
+    }
+
+    .tweetButtonDiv{
+        width: 49px;
+    }
+
+    .tweetButtonIconSpan{
+        display: flex;
+        width: 36px;
+    }
+
+   .tweetButtonIcon{
+    width: 37px;
+
+   }
+
+   .userIdPatch{
+    width: 40px;
+   }
+}
+
+@media screen and (max-width: 895px){
+
+
+    .leftSide {
+        width: 99px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 627px){
+    .leftSide {
+        width: 101px;
+        margin-left: 0;
+ 
+    }
+}
+
+@media screen and (max-width: 475px){
+    .leftSide {
+       display: none;
+ 
+    }
+}

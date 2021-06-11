@@ -28,7 +28,12 @@
 
 .outerCenterImageDiv{
     margin-right: 10px;
-    width: 9%
+    width: 42px;
+}
+
+.outerCenterTweetInputImageDiv{
+    margin-right: 0px;
+    width: 59px;
 }
 
 .tweetSubmit{
@@ -93,4 +98,12 @@
     width: 100%;
     height: 100%;
     border-radius: 51px
+}
+
+@media screen and (max-width: 475px){
+    .tweetSubmitDiv {
+       display: none;
+ 
+    }
+
 }

@@ -74,10 +74,10 @@ function Icons(props) {
             <div className="inputIcons">
                 <PollOutlinedIcon style={{ fontSize: "23px" }} />
             </div>
-            <div className="inputIcons">
+            <div className="inputIcons inputIconsHide">
                 <SentimentSatisfiedSharpIcon style={{ fontSize: "23px" }} />
             </div>
-            <div className="inputIcons">
+            <div className="inputIcons inputIconsHide">
                 <ScheduleIcon style={{ fontSize: "23px" }} />
             </div>
         </div>
