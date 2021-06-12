@@ -5,7 +5,7 @@
 
 
 .leftSide{
-    width: 21%;
+    width: 20.7%;
     height: 100%;
     margin-left: 3%;
     /* border-right:1px solid #38444d; */
@@ -46,10 +46,10 @@
     background-color: #1f3556;
 }
 
-@media screen and (min-width: 1318px){
+@media screen and (min-width: 1370px){
     .leftSide {
         width: 274px;
-        margin-left: 3%;
+        margin-left: 34px;
         
     }
 }
