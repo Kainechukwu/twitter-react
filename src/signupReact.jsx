@@ -1,9 +1,10 @@
 import React from 'react';
+import { useInput } from "./components/useInput"
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
-import axios from "axios";  
+import axios from "axios";
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -53,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "40px",
         // backgroundColor: "rgba(29,161,242,1.00)",
         color: "white",
-        backgroundColor:  "rgba(29,161,242,1.00)"
+        backgroundColor: "rgba(29,161,242,1.00)"
 
     },
     month: {
@@ -86,15 +87,14 @@ export default function SignUp() {
 
     // ----------------------------USE STATE------------------------------------
 
-    const [signup, setSignup] = React.useState({
-        firstname: "",
-        lastname: "",
-        username: "",
-        password: "",
-        month: "",
-        day: "",
-        year: ""
-    });
+
+    const { value: firstname, bind: bindFirstName, reset: resetFirstName } = useInput("");
+    const { value: lastname, bind: bindLastName, reset: resetLastName } = useInput("");
+    const { value: username, bind: bindUserName, reset: resetUserName } = useInput("");
+    const { value: password, bind: bindPassword, reset: resetPassword } = useInput("");
+    const { value: month, bind: bindMonth, reset: resetMonth } = useInput("");
+    const { value: day, bind: bindDay, reset: resetDay } = useInput("");
+    const { value: year, bind: bindYear, reset: resetYear } = useInput("");
 
 
     // ----------------------------YEARS ARRAY------------------------------------
@@ -117,84 +117,12 @@ export default function SignUp() {
 
     // ----------------------------HANDLE CHANGE------------------------------------
 
-    function handleChange(event) {
-        const { name, value } = event.target;
+    // function handleChange(event) {
+    //     const { name, value } = event.target;
 
 
-        setSignup(prevValue => {
-            if (name === "firstName") {
-                return {
-                    firstname: value,
-                    lastname: prevValue.lastname,
-                    username: prevValue.username,
-                    password: prevValue.password,
-                    month: prevValue.month,
-                    day: prevValue.day,
-                    year: prevValue.year
-                }
-            } else if (name === "lastName") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: value,
-                    username: prevValue.username,
-                    password: prevValue.password,
-                    month: prevValue.month,
-                    day: prevValue.day,
-                    year: prevValue.year
-                }
-            } else if (name === "email") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: prevValue.lastname,
-                    username: value,
-                    password: prevValue.password,
-                    month: prevValue.month,
-                    day: prevValue.day,
-                    year: prevValue.year
-                }
-            } else if (name === "password") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: prevValue.lastname,
-                    username: prevValue.username,
-                    password: value,
-                    month: prevValue.month,
-                    day: prevValue.day,
-                    year: prevValue.year
-                }
-            } else if (name === "month") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: prevValue.lastname,
-                    username: prevValue.username,
-                    password: prevValue.password,
-                    month: value,
-                    day: prevValue.day,
-                    year: prevValue.year
-                }
-            } else if (name === "day") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: prevValue.lastname,
-                    username: prevValue.username,
-                    password: prevValue.password,
-                    month: prevValue.month,
-                    day: value,
-                    year: prevValue.year
-                }
-            } else if (name === "year") {
-                return {
-                    firstname: prevValue.firstname,
-                    lastname: prevValue.lastname,
-                    username: prevValue.username,
-                    password: prevValue.password,
-                    month: prevValue.month,
-                    day: prevValue.day,
-                    year: value
-                }
-            }
-        });
-    };
+
+    // };
 
 
 
@@ -207,9 +135,19 @@ export default function SignUp() {
     // ----------------------------CREATE DAY------------------------------------
     function submitDetails(event) {
 
+        const signup = {
+            firstname: firstname,
+            lastname: lastname,
+            username: username,
+            password: password,
+            month: month,
+            day: day,
+            year: year
+        }
+
         console.log(signup);
 
-        
+
         axios({
             method: "POST",
             data: signup,
@@ -219,6 +157,14 @@ export default function SignUp() {
         }).then(response => {
             console.log(response);
         });
+
+        resetFirstName();
+        resetLastName();
+        resetUserName();
+        resetPassword();
+        resetMonth();
+        resetDay();
+        resetYear();
 
         event.preventDefault();
     }
@@ -244,8 +190,7 @@ export default function SignUp() {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
-                                value={signup.firstname}
-                                onChange={handleChange}
+                                {...bindFirstName}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -257,8 +202,7 @@ export default function SignUp() {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
-                                value={signup.lastname}
-                                onChange={handleChange}
+                                {...bindLastName}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -270,8 +214,7 @@ export default function SignUp() {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
-                                value={signup.username}
-                                onChange={handleChange}
+                                {...bindUserName}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -284,8 +227,7 @@ export default function SignUp() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                value={signup.password}
-                                onChange={handleChange}
+                                {...bindPassword}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12}>
@@ -294,8 +236,7 @@ export default function SignUp() {
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={signup.month}
-                                    onChange={handleChange}
+                                    {...bindMonth}
                                     label="Month"
                                     name="month"
                                 >
@@ -312,8 +253,7 @@ export default function SignUp() {
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={signup.day}
-                                    onChange={handleChange}
+                                    {...bindDay}
                                     label="Day"
                                     name="day"
                                 >
@@ -330,8 +270,7 @@ export default function SignUp() {
                                 <Select
                                     labelId="demo-simple-select-outlined-label"
                                     id="demo-simple-select-outlined"
-                                    value={signup.year}
-                                    onChange={handleChange}
+                                    {...bindYear}
                                     label="Year"
                                     name="year"
                                 >

@@ -60,7 +60,12 @@ export default function TweetInput(props) {
     function handleClick(event) {
         const data = new FormData();
 
-        console.log("TweetImageFile: ", tweet.tweetImageFile);
+        // console.log("TweetImageFile: ", tweet.tweetImageFile);
+
+        // if(!tweet.tweetImageFile === null){
+            // data.append("file", tweet.tweetImageFile);
+
+        // }
 
         data.append("file", tweet.tweetImageFile);
         data.set("data", tweet.tweet);
@@ -89,7 +94,7 @@ export default function TweetInput(props) {
 
 
 
-        event.preventDefault()
+        // event.preventDefault()
     }
 
     useEffect(() => {
