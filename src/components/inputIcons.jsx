@@ -15,13 +15,15 @@ function Icons(props) {
     function changeHandler(event) {
         setSelectedFile(event.target.files[0]);
         setIsFilePicked(true);
-        {props.tweetImage(() => {
-            return {
-                imageState: {isFilePicked},
-                imageSrc: event.target.files[0] && String(URL.createObjectURL(event.target.files[0]))
-            }
+        {
+            props.tweetImage(() => {
+                return {
+                    imageState: { isFilePicked },
+                    imageSrc: event.target.files[0] && String(URL.createObjectURL(event.target.files[0]))
+                }
 
-        })}
+            })
+        }
 
         {
             props.setTweet((prev) => {
@@ -54,7 +56,7 @@ function Icons(props) {
                     name="file"
                     onChange={changeHandler}
                     ref={tweetImageInput}
-                    accept=".jpg"
+                    accept=".png, .jpg, .jpeg"
                 />
             </div>
 

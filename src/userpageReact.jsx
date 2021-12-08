@@ -42,7 +42,7 @@ export default function UserPage(props) {
 
             <Navbar />
             <div
-                className="displayFlex mainPageDiv"
+                className="displayFlex mainPageDiv bg-dark"
             // style={{ width: "73%", marginLeft: "24%", justifyContent: "space-between" }}
             >
 

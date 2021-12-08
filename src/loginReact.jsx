@@ -22,7 +22,7 @@ function Copyright() {
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
                 Twitter
-      </Link>{' '}
+            </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
@@ -31,10 +31,14 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        paddingTop: theme.spacing(8),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        backgroundColor: "white",
+        width: "450px",
+        marginLeft: "auto",
+        marginRight: "auto",
     },
     twitter: {
         margin: theme.spacing(1),
@@ -119,74 +123,76 @@ export default function Login() {
 
 
     return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
+        <div className="bg-white w-full h-full">
+            <Container component="main" >
+                <CssBaseline />
+                <div className={classes.paper}>
 
-                <TwitterIcon className={classes.twitter}></TwitterIcon>
-                <Typography component="h1" variant="h5">
-                    Log in
-        </Typography>
-                <form onSubmit={submitDetails} className={classes.form} noValidate>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        value={login.username}
-                        onChange={handleLoginChange}
+                    <TwitterIcon className={classes.twitter}></TwitterIcon>
+                    <Typography component="h1" variant="h5">
+                        Log in
+                    </Typography>
+                    <form onSubmit={submitDetails} className={classes.form} noValidate>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                            value={login.username}
+                            onChange={handleLoginChange}
 
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        value={login.password}
-                        onChange={handleLoginChange}
-                    />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        style={{ backgroundColor: buttonHover ? "turquoise" : "rgba(29,161,242,1.00)" }}
-                        className={classes.submit}
-                        onMouseOver={buttonOver}
-                        onMouseOut={buttonOut}
-                    >
-                        Log In
-                    </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-              </Link>
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            value={login.password}
+                            onChange={handleLoginChange}
+                        />
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" />}
+                            label="Remember me"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            style={{ backgroundColor: buttonHover ? "turquoise" : "rgba(29,161,242,1.00)" }}
+                            className={classes.submit}
+                            onMouseOver={buttonOver}
+                            onMouseOut={buttonOut}
+                        >
+                            Log In
+                        </Button>
+                        <Grid container>
+                            <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+                                </Link>
+                            </Grid>
+                            <Grid item>
+                                <Link href="#" variant="body2">
+                                    {"Don't have an account? Sign Up"}
+                                </Link>
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </form>
-            </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
-        </Container>
+                    </form>
+                </div>
+                <Box mt={8}>
+                    <Copyright />
+                </Box>
+            </Container>
+        </div>
     );
 }

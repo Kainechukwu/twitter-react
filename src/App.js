@@ -5,7 +5,7 @@ import Login from "./loginReact";
 import UserPage from "./userpageReact"
 // import axios from "axios"
 
-import { BrowserRouter, Route, Switch} from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 
 // const date = new Date().getFullYear();
@@ -55,14 +55,14 @@ const PageNotFound = function () {
 function App() {
   return (
     <BrowserRouter>
-      <div >
+      <div className="bg-dark">
         <Switch>
           <Route exact path="/" component={LandingPage}></Route>
           <Route exact path="/signupReact" component={SignUp}></Route>
           <Route exact path="/loginReact" component={Login}></Route>
           <Route exact path="/userpageReact" component={UserPage}></Route>
 
-          <Route component={PageNotFound}/>
+          <Route component={PageNotFound} />
         </Switch>
       </div>
     </BrowserRouter>
